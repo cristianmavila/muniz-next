@@ -15,7 +15,7 @@ import { EffectFade, Autoplay } from "swiper/modules";
 
 const HomeFadeImages = () => {
   return (
-    <div className="absolute top-0 left-0 w-full h-full -z-10 bg-black">
+    <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
       <Swiper
         speed={500}
         modules={[EffectFade, Autoplay]}
@@ -30,7 +30,7 @@ const HomeFadeImages = () => {
           disableOnInteraction: false,
         }}
         loop
-        className="h-full"
+        className="h-full !duration-1000"
       >
         <SwiperSlide className="!h-full">
           <Image

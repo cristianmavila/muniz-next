@@ -29,3 +29,7 @@ p {
     text-wrap: balance;
   }
 }
+
+.swiper-fade .swiper-slide {
+  @apply !duration-[3000ms] !delay-[2000ms];
+}

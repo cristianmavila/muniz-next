@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { cn } from "@/libs/tailwind";
 import Logo, { LogoProps } from "../Logo";
 import ChevronDown from "../ChevronDown";
+import MenuIcon from "../MenuIcon/MenuIcon";
 import HomeFadeImages from "../HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
-import MenuIcon from "../MenuIcon/MenuIcon";
 
-const HeaderVariants = cva("flex justify-center p-5", {
+const HeaderVariants = cva("flex justify-between p-5", {
   variants: {
     variant: {
       default: "",
@@ -31,10 +32,14 @@ const Header = ({ variant }: HeaderProps) => {
       };
   return (
     <header className={cn(HeaderVariants({ variant }))}>
-      <MenuIcon />
-      <Logo {...logoHeader} />
-      <ChevronDown />
+      <div className="flex gap-4 relative z-10 flex-col justify-center items-center">
+        {isHome && <MenuIcon />}
 
+        <Link href="/">
+          <Logo {...logoHeader} />
+        </Link>
+        {isHome && <ChevronDown />}
+      </div>
       {isHome && <HomeFadeImages />}
     </header>
   );
