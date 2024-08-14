@@ -30,6 +30,19 @@ p {
   }
 }
 
+.swiper-fade .swiper-wrapper {
+  @apply !duration-[500ms] !delay-[100ms];
+}
+
 .swiper-fade .swiper-slide {
-  @apply !duration-[3000ms] !delay-[2000ms];
+  @apply !duration-[3000ms] !delay-[100ms];
+}
+
+.cool-link-effect::after {
+  @apply block border-b-[1px]  scale-x-0 transition-transform w-full origin-left ease-out;
+  content: " ";
+}
+
+.cool-link-effect::after:hover {
+  @apply scale-x-100;
 }

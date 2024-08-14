@@ -1,10 +1,8 @@
-import Link from "next/link";
 import { cn } from "@/libs/tailwind";
-import Logo, { LogoProps } from "../Logo";
-import ChevronDown from "../ChevronDown";
-import MenuIcon from "../MenuIcon/MenuIcon";
-import HomeFadeImages from "../HomeFadeImages";
+import HomeMenu from "@/components/HomeMenu";
+import HomeFadeImages from "@/components/HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
+import DesktopMenu from "../DesktopMenu";
 
 const HeaderVariants = cva("flex justify-between p-5", {
   variants: {
@@ -20,25 +18,36 @@ const HeaderVariants = cva("flex justify-between p-5", {
 
 interface HeaderProps extends VariantProps<typeof HeaderVariants> {}
 
+const menu = [
+  {
+    href: "/portfolio/i/industria/",
+    children: "Indústria",
+  },
+  {
+    href: "/portfolio/i/instituicao-empresa/",
+    children: "Instituição & Empresa",
+  },
+  {
+    href: "/portfolio/i/varejo-produto/",
+    children: "Varejo & Produto",
+  },
+  {
+    href: "/portfolio/i/conceitos-expertise/",
+    children: "Conceitos & Expertise",
+  },
+  {
+    href: "/contato",
+    children: "Contato",
+  },
+];
+
 const Header = ({ variant }: HeaderProps) => {
   const isHome = !!(variant === "home");
-  const logoHeader: LogoProps = isHome
-    ? {
-        variant: "horizontal",
-        color: "#FFF",
-      }
-    : {
-        variant: "vertical",
-      };
+
   return (
     <header className={cn(HeaderVariants({ variant }))}>
-      <div className="flex gap-4 relative z-10 flex-col justify-center items-center">
-        {isHome && <MenuIcon />}
-
-        <Link href="/">
-          <Logo {...logoHeader} />
-        </Link>
-        {isHome && <ChevronDown />}
+      <div className={cn("relative z-10 w-full", isHome && "w-auto")}>
+        {isHome ? <HomeMenu menu={menu} /> : <DesktopMenu menu={menu} />}
       </div>
       {isHome && <HomeFadeImages />}
     </header>
