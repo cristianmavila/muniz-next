@@ -57,7 +57,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "flex flex-col px-0 cool-link-effect"
+                        "flex flex-col px-0 cool-link-effect home"
                       )}
                     >
                       {link.children}

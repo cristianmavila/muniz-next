@@ -1,26 +1,25 @@
-import Image from "next/image";
-import { ReactElement, ReactNode } from "react";
+import { Fragment, ReactElement, ReactNode } from "react";
 import { ImageProps, LinkProps } from "@/components/ProjectItem";
 import ListImages from "@/components/ListImages";
-export interface PortfolioPageProps {
-  params: {
-    slug: string;
-  };
-  name: string;
-  description: ReactNode | ReactElement | string;
-  tags?: string[];
-  sections: {
-    image: ImageProps;
-    link?: LinkProps;
-  }[];
+interface PortfolioPageProps {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+  // name: string;
+  // description: ReactNode | ReactElement | string;
+  // tags?: string[];
+  // sections: {
+  //   image: ImageProps;
+  //   link?: LinkProps;
+  // }[];
+  children: ReactNode | ReactElement | string;
 }
 
-const PortfolioPage = ({
-  params,
-  name = "Project name",
-  description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-  tags = ["Nome do projeto", "Redesign de Marca", "Identidade Visual", "Guideline"],
-  sections = [
+const PortfolioPage = ({ params }: { params: { slug: string } }) => {
+  const name = "Project name";
+  const description =
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+  const tags = ["Nome do projeto", "Redesign de Marca", "Identidade Visual", "Guideline"];
+  const sections = [
     {
       image: {
         src: "https://placehold.co/600x400",
@@ -45,21 +44,22 @@ const PortfolioPage = ({
         height: 345,
       },
     },
-  ],
-}: PortfolioPageProps) => {
+  ];
+
   console.log(params);
+
   return (
     <div className="xl:container relative overflow-hidden mb-16">
       <h1 className="text-[28px] md:text-[45px] font-medium mt-10 mb-5 leading-none">{name}</h1>
-      {tags.length > 0 && (
+      {tags && tags?.length > 0 && (
         <div className="text-sm md:text-lg text-titleIndice mb-5">
           {tags?.map((tag, index) => {
             return (
-              <>
+              <Fragment key={index}>
                 {tags.length - 1 === index && tags.length > 1 && " e "}
-                <span key={index}>{tag}</span>
+                <span>{tag}</span>
                 {index < tags.length - 2 && ", "}
-              </>
+              </Fragment>
             );
           })}
         </div>

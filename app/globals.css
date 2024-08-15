@@ -57,6 +57,11 @@ h6 {
   @apply text-brand;
 }
 
+.cool-link-effect.home:hover,
+.cool-link-effect.home:active {
+  @apply text-white;
+}
+
 .cool-link-effect::after:hover {
   @apply scale-x-100 border-brand;
 }

@@ -45,13 +45,8 @@ const items = [
   },
 ];
 
-const IndicePage = ({
-  params,
-  name = "Título do índice",
-}: {
-  params: { indice: string };
-  name: string;
-}) => {
+const IndicePage = ({ params }: { params: { indice: string } }) => {
+  const name = "Título do índice";
   return (
     <div className="xl:container mx-auto relative overflow-hidden mb-16">
       <h1 className="text-2xl md:text-3xl text-titleIndice font-medium mt-10 mb-5">{name}</h1>
