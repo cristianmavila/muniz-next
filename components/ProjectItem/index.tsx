@@ -1,5 +1,5 @@
-import ProjectItem, { ProjectItemProps } from "./ProjectItem";
+import ProjectItem, { ImageProps, LinkProps, ProjectItemProps } from "./ProjectItem";
 
-export type { ProjectItemProps };
+export type { ProjectItemProps, ImageProps, LinkProps };
 export { ProjectItem };
 export default ProjectItem;

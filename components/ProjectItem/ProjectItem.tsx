@@ -3,13 +3,7 @@ import Image from "next/image";
 
 export interface ProjectItemProps {
   id?: number;
-  thumbnail: {
-    src: string;
-    target?: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
+  thumbnail: ImageProps;
   name: string;
   link: {
     href: string;
@@ -17,6 +11,21 @@ export interface ProjectItemProps {
     target?: string;
     title?: string;
   };
+}
+
+export interface ImageProps {
+  src: string;
+  target?: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export interface LinkProps {
+  href: string;
+  children: string;
+  target?: string;
+  title?: string;
 }
 
 const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {

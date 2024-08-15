@@ -35,7 +35,7 @@ const HomeFadeImages = () => {
         <SwiperSlide className="!h-full">
           <Image
             loader={imageKitLoader}
-            src={!itsMobile ? "home-background-01.webp" : "home-background-01-mobile.webp"}
+            src={!itsMobile ? "01-home.webp" : "01-home-mobile.webp"}
             fill
             alt="Home image 01"
             sizes="100vw"
@@ -47,7 +47,18 @@ const HomeFadeImages = () => {
         <SwiperSlide className="!h-full">
           <Image
             loader={imageKitLoader}
-            src={!itsMobile ? "home-background-02.webp" : "home-background-02-mobile.webp"}
+            src={!itsMobile ? "02-home.webp" : "02-home-mobile.webp"}
+            fill
+            alt="Home image 01"
+            sizes="100vw"
+            quality={100}
+            className="object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="!h-full">
+          <Image
+            loader={imageKitLoader}
+            src={!itsMobile ? "03-home.webp" : "03-home-mobile.webp"}
             fill
             alt="Home image 01"
             sizes="100vw"

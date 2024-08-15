@@ -16,6 +16,20 @@ const config: Config = {
         titleIndice: "#727274",
         brand: "#A90034",
       },
+      container: {
+        center: true,
+        screens: {
+          sm: "100%",
+          md: "100%",
+          lg: "100%",
+          xl: "1170px",
+        },
+        padding: {
+          DEFAULT: "1rem",
+          md: "1.5rem",
+          lg: "2rem",
+        },
+      },
     },
   },
   plugins: [],
