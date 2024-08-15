@@ -54,8 +54,6 @@ const IndicePage = ({ params }: { params: { indice: string } }) => {
       <h1 className="text-2xl md:text-3xl text-titleIndice font-medium mt-10 mb-5">
         Título do índice
       </h1>
-      {params.indice}
-
       <ListIndice projects={items} />
     </div>
   );

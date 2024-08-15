@@ -1,9 +1,11 @@
 import SocialLinks from "@/components/SocialLinks";
 
-const Footer = () => {
+const Footer = ({ socialLinksClassName }: { socialLinksClassName?: string }) => {
   return (
     <>
-      <SocialLinks />
+      <div className={socialLinksClassName}>
+        <SocialLinks />
+      </div>
       <div className="p-4 mt-4 text-white bg-black text-center -mx-4 text-[8px] md:text-base">
         <p>2022 | Jorge Muniz &amp; Crédito | TODOS OS DIREITOS RESERVADOS</p>
         <p>

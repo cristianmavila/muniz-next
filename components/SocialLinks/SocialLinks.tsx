@@ -3,7 +3,7 @@ import React from "react";
 
 const SocialLinks = () => {
   return (
-    <ul className="flex justify-center items-center w-full gap-4">
+    <ul className="flex justify-center items-center w-full gap-4 py-4">
       <li>
         <Link href="/contato">
           <svg

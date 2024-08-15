@@ -52,6 +52,11 @@ h6 {
   content: " ";
 }
 
+.cool-link-effect:hover,
+.cool-link-effect:active {
+  @apply text-brand;
+}
+
 .cool-link-effect::after:hover {
-  @apply scale-x-100;
+  @apply scale-x-100 border-brand;
 }
