@@ -1,0 +1,39 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export interface ProjectItemProps {
+  id?: number;
+  thumbnail: {
+    src: string;
+    target?: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+  name: string;
+  link: {
+    href: string;
+    children: string;
+    target?: string;
+    title?: string;
+  };
+}
+
+const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
+  const { src, alt, height, width } = thumbnail;
+  const { href, title, target } = link;
+  return (
+    <Link {...{ href, title, target }} className="w-full group">
+      <h2 className="text-2xl md:text-4xl pt-7 pb-5 font-medium group-hover:text-brand">{name}</h2>
+      <div className="w-full overflow-hidden relative">
+        <Image
+          {...{ src, alt, width, height }}
+          quality={100}
+          className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]"
+        />
+      </div>
+    </Link>
+  );
+};
+
+export default ProjectItem;

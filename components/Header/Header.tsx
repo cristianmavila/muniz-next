@@ -4,11 +4,12 @@ import HomeFadeImages from "@/components/HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
 import DesktopMenu from "../DesktopMenu";
 
-const HeaderVariants = cva("flex justify-between p-5", {
+const HeaderVariants = cva("flex justify-between py-5", {
   variants: {
     variant: {
       default: "",
       home: "h-svh items-center p-0 min-h-[600px] text-white flex-col justify-center gap-8 relative overflow-hidden",
+      conceitos: "",
     },
   },
   defaultVariants: {
@@ -32,7 +33,7 @@ const menu = [
     children: "Varejo & Produto",
   },
   {
-    href: "/portfolio/i/conceitos-expertise/",
+    href: "/conceitos-expertise/",
     children: "Conceitos & Expertise",
   },
   {
@@ -48,6 +49,11 @@ const Header = ({ variant }: HeaderProps) => {
     <header className={cn(HeaderVariants({ variant }))}>
       <div className={cn("relative z-10 w-full", isHome && "w-auto")}>
         {isHome ? <HomeMenu menu={menu} /> : <DesktopMenu menu={menu} />}
+        {variant === "conceitos" && (
+          <div>
+            <DesktopMenu menu={menu} />
+          </div>
+        )}
       </div>
       {isHome && <HomeFadeImages />}
     </header>

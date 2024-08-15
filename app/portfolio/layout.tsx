@@ -4,7 +4,7 @@ import { ReactElement, ReactNode } from "react";
 
 const LayoutPortfolio = ({ children }: { children: ReactNode | ReactElement | string }) => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen px-4">
       <Header />
       {children}
       <Footer />

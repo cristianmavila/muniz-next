@@ -17,11 +17,20 @@
 }
 
 body {
-  @apply bg-black text-sm;
+  @apply text-sm;
 }
 
 p {
   @apply leading-6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-wider;
 }
 
 @layer utilities {
