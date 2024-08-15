@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-const LayoutContact = () => {
+const LayoutConceitos = () => {
   return (
     <div className="bg-white min-h-screen px-4">
       <Header />
@@ -15,4 +15,4 @@ const LayoutContact = () => {
   );
 };
 
-export default LayoutContact;
+export default LayoutConceitos;
