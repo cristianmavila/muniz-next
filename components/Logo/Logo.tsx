@@ -10,8 +10,8 @@ const Logo = ({ variant = "horizontal", color = "#A90034" }: LogoProps) => {
     <>
       {variant === "horizontal" ? (
         <svg
-          width="300px"
-          height="21px"
+          width="350px"
+          height="41px"
           viewBox="0 0 431 30"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

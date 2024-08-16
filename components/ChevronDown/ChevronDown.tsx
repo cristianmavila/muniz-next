@@ -1,15 +1,10 @@
 const ChevronDown = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="35"
-      height="35"
-      viewBox="0 0 23 23"
-      version="1.1"
-      fill="currentColor"
-      strokeWidth={0.5}
-    >
-      <path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
+    <svg width="100px" height="100px" viewBox="0 0 558 457">
+      <polygon
+        points="358.48,192.006 279.104,271.368 199.729,192.006 206.895,184.841 279.104,257.038 351.314,184.841 "
+        fill="currentColor"
+      />
     </svg>
   );
 };

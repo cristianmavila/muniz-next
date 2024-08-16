@@ -34,7 +34,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
       <Collapsible
         open={toggleMenu}
         onOpenChange={setToggleMenu}
-        className="flex flex-col justify-center items-center gap-6"
+        className="flex flex-col justify-center items-center gap-2"
       >
         <CollapsibleTrigger>
           <MenuIcon open={toggleMenu} />
