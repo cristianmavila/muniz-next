@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
-import { ImageProps, LinkProps } from "../ProjectItem";
+import { ImageProps, LinkProps } from "@/components/ProjectItem";
+import ConditionalWrapper from "@/components/ConditionalWrapper";
 
 const ListImages = ({
   items,
@@ -12,8 +14,20 @@ const ListImages = ({
   return (
     <div className="grid gap-5 mt-5 md:gap-12 md:mt-12">
       {items?.map((project, index) => {
-        const { image } = project;
-        return <Image key={index} {...image} alt={image.alt} className="w-full" />;
+        const { image, link } = project;
+        return (
+          <ConditionalWrapper
+            key={index}
+            condition={!!link}
+            wrapper={(children) => (
+              <Link href={`${link?.href}`} target={link?.target}>
+                {children}
+              </Link>
+            )}
+          >
+            <Image {...image} alt={image.alt} className="w-full" />
+          </ConditionalWrapper>
+        );
       })}
     </div>
   );

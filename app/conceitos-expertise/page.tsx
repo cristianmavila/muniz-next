@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { cva } from "class-variance-authority";
+import ConceitosExpertise from "@/components/ConceitosExpertiseImage";
 
 const LayoutConceitos = () => {
   const grayStyle = cva("text-titleIndice");
@@ -8,10 +9,13 @@ const LayoutConceitos = () => {
 
   return (
     <div className="bg-black text-white min-h-screen px-4">
-      <Header />
+      <Header variant={"conceitos"} />
       <div className="xl:container mx-auto relative overflow-hidden mb-16 text-sm md:text-xl [&_p]:leading-8">
         <div className="grid gap-9 max-w-[810px] mx-auto">
-          <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5">Conceitos & Expertise</h1>
+          <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">
+            Conceitos & Expertise
+          </h1>
+          <ConceitosExpertise />
           <div className="grid gap-3">
             <h3 className={titleStyle()}>Propósitos do design</h3>
             <p className={grayStyle()}>

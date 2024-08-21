@@ -1,13 +1,14 @@
-import React from "react";
+import { cn } from "@/libs/tailwind";
 
 export interface LogoProps {
   variant?: "horizontal" | "vertical";
   color?: string;
+  className?: string;
 }
 
-const Logo = ({ variant = "horizontal", color = "#A90034" }: LogoProps) => {
+const Logo = ({ variant = "horizontal", color = "#A90034", className }: LogoProps) => {
   return (
-    <>
+    <div className={cn(className)}>
       {variant === "horizontal" ? (
         <svg
           width="350px"
@@ -57,7 +58,7 @@ const Logo = ({ variant = "horizontal", color = "#A90034" }: LogoProps) => {
           </g>
         </svg>
       )}
-    </>
+    </div>
   );
 };
 

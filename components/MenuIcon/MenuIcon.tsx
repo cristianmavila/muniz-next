@@ -1,12 +1,15 @@
+import { cn } from "@/libs/tailwind";
+
 interface MenuIconProps {
   open: boolean;
+  className?: string;
 }
 
-const MenuIcon = ({ open }: MenuIconProps) => {
+const MenuIcon = ({ open, className }: MenuIconProps) => {
   return (
     <div>
       {!open ? (
-        <svg width="90px" height="90px" viewBox="0 0 558 457">
+        <svg width="90px" height="90px" viewBox="0 0 558 457" className={cn(className)}>
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -16,7 +19,7 @@ const MenuIcon = ({ open }: MenuIconProps) => {
           />
         </svg>
       ) : (
-        <svg width="90px" height="90px" viewBox="0 0 558 457">
+        <svg width="90px" height="90px" viewBox="0 0 558 457" className={cn(className)}>
           <polygon
             fill="#8C8C8E"
             points="195.612,127.163 279.104,210.657 362.596,127.163 380.043,144.61 296.551,228.104 380.043,311.598 
