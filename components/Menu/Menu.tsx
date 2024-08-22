@@ -29,7 +29,7 @@ export interface MenuProps extends VariantProps<typeof MenuVariants> {
   orientation?: "horizontal" | "vertical";
 }
 
-const Menu = ({ menu, variant, orientation }: MenuProps) => {
+const Menu = ({ menu, variant = "horizontal", orientation }: MenuProps) => {
   return (
     <NavigationMenu orientation={orientation} className={cn(MenuVariants({ variant }))}>
       <NavigationMenuList className="">
@@ -39,7 +39,9 @@ const Menu = ({ menu, variant, orientation }: MenuProps) => {
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "uppercase text-sm font-normal px-2 cool-link-effect flex flex-col"
+                  // "font-normal px-2 cool-link-effect flex flex-col",
+                  "text-sm",
+                  variant === "horizontal" && "uppercase"
                 )}
               >
                 {link.children}

@@ -54,7 +54,7 @@ const Header = ({ variant }: HeaderProps) => {
         {!isHome && variant !== "conceitos" && <DesktopMenu menu={menu} logo={"vertical"} />}
         {variant === "conceitos" && (
           <div>
-            <DesktopMenu menu={menu} variant={"vertical"} logo={"horizontal"} />
+            <DesktopMenu menu={menu} variant={"conceitos"} logo={"horizontal"} />
           </div>
         )}
       </div>

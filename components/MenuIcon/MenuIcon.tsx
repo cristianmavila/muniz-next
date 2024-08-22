@@ -7,7 +7,7 @@ interface MenuIconProps {
 
 const MenuIcon = ({ open, className }: MenuIconProps) => {
   return (
-    <div>
+    <div className={cn(className)}>
       {!open ? (
         <svg width="90px" height="90px" viewBox="0 0 558 457" className={cn(className)}>
           <path

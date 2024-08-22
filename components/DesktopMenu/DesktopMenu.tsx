@@ -14,10 +14,11 @@ const DesktopMenuVariants = cva("xl:container mx-auto flex justify-between items
     variant: {
       vertical: "flex flex-col",
       horizontal: "",
+      conceitos: "flex flex-col-reverse md:flex-col",
     },
     logo: {
       vertical: "",
-      horizontal: "my-8 mt-3",
+      horizontal: "md:my-8 md:mt-3",
     },
   },
   defaultVariants: {
@@ -67,7 +68,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               className="relative z-20 flex flex-col items-center justify-center h-full"
               onClick={() => setToggleMenu(false)}
             >
-              <SheetClose asChild>
+              <SheetClose asChild className="absolute top-0 right-0 size-24">
                 <div>
                   <MenuIcon open={toggleMenu} className="size-24 -mr-3" />
                 </div>
