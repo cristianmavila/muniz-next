@@ -39,9 +39,9 @@ const Menu = ({ menu, variant = "horizontal", orientation }: MenuProps) => {
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
+                  "cool-link-effect flex flex-col",
                   // "font-normal px-2 cool-link-effect flex flex-col",
-                  "text-sm",
-                  variant === "horizontal" && "uppercase"
+                  variant === "horizontal" ? "uppercase font-normal text-sm" : ""
                 )}
               >
                 {link.children}

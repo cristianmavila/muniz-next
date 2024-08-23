@@ -9,7 +9,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { useTabletOrMobile } from "@/hooks/useTabletOrMobile";
 import { Sheet, SheetClose, SheetContent, SheetTrigger, SheetTitle } from "@/components/core/Sheet";
 
-const DesktopMenuVariants = cva("xl:container mx-auto flex justify-between items-center w-full", {
+const DesktopMenuVariants = cva("container mx-auto flex justify-between items-center w-full", {
   variants: {
     variant: {
       vertical: "flex flex-col",
@@ -18,7 +18,7 @@ const DesktopMenuVariants = cva("xl:container mx-auto flex justify-between items
     },
     logo: {
       vertical: "",
-      horizontal: "md:my-8 md:mt-3",
+      horizontal: "",
     },
   },
   defaultVariants: {
@@ -88,7 +88,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
         <Logo
           {...{
             variant: logo === "horizontal" ? "horizontal" : "vertical",
-            className: DesktopMenuVariants({ logo }),
+            className: cn(logo === "horizontal" && "md:my-8 md:mt-3"),
           }}
         />
       </Link>
