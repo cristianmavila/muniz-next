@@ -8,16 +8,13 @@ import Logo from "@/components/Logo";
 import Menu from "@/components/Menu";
 import MenuIcon from "@/components/MenuIcon";
 import ChevronDown from "@/components/ChevronDown";
+import { LinkProps } from "@/components/ProjectItem";
 
 // shadcn components
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/core/Collapsible";
 
 interface HomeMenuProps {
-  menu?: {
-    href: string;
-    children: string;
-    target?: string;
-  }[];
+  menu?: LinkProps[];
 }
 
 const HomeMenu = ({ menu }: HomeMenuProps) => {
@@ -44,7 +41,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
         </Link>
         <ChevronDown />
         <CollapsibleContent className="w-full">
-          <Menu menu={menu} variant={"home"} orientation="vertical" />
+          {menu && <Menu menu={menu} variant={"home"} orientation="vertical" />}
         </CollapsibleContent>
       </Collapsible>
     </>

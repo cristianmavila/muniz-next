@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "../core/NavigationMenu";
-import { LinkProps } from "../ProjectItem";
+import { LinkProps } from "@/components/ProjectItem";
 
 const MenuVariants = cva("", {
   variants: {
