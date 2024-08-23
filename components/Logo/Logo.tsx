@@ -4,19 +4,21 @@ export interface LogoProps {
   variant?: "horizontal" | "vertical";
   color?: string;
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-const Logo = ({ variant = "horizontal", color = "#A90034", className }: LogoProps) => {
+const Logo = ({
+  variant = "horizontal",
+  width = 350,
+  height = 41,
+  color = "#A90034",
+  className,
+}: LogoProps) => {
   return (
     <div className={cn(className)}>
       {variant === "horizontal" ? (
-        <svg
-          width="350px"
-          height="41px"
-          viewBox="0 0 431 30"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg viewBox="0 0 431 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <title>logo</title>
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g

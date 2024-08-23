@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/libs/tailwind";
 import HomeMenu from "@/components/HomeMenu";
 import HomeFadeImages from "@/components/HomeFadeImages";
@@ -51,12 +49,12 @@ const Header = ({ variant }: HeaderProps) => {
     <header className={cn(HeaderVariants({ variant }))}>
       <div className={cn("relative z-10 w-full", isHome && "w-auto px-4 md:px-0")}>
         {isHome && <HomeMenu menu={menu} />}
-        {!isHome && variant !== "conceitos" && <DesktopMenu menu={menu} logo={"vertical"} />}
-        {variant === "conceitos" && (
+        {!isHome && <DesktopMenu menu={menu} logo={"vertical"} />}
+        {/* {variant === "conceitos" && (
           <div>
             <DesktopMenu menu={menu} variant={"conceitos"} logo={"horizontal"} />
           </div>
-        )}
+        )} */}
       </div>
       {isHome && <HomeFadeImages />}
     </header>

@@ -49,7 +49,7 @@ const PortfolioPage = ({ params }: { params: { slug: string } }) => {
   console.log(params);
 
   return (
-    <div className="xl:container relative overflow-hidden mb-16">
+    <div className="container relative overflow-hidden mb-16">
       <h1 className="text-[28px] md:text-[45px] font-medium mt-10 mb-5 leading-none">{name}</h1>
       {tags && tags?.length > 0 && (
         <div className="text-sm md:text-lg text-titleIndice mb-5">

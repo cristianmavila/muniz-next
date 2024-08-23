@@ -8,14 +8,16 @@ const LayoutConceitos = () => {
   const titleStyle = cva("text-lg md:text-2xl text-brand");
 
   return (
-    <div className="bg-black text-white min-h-screen px-4">
+    <div className="bg-black text-white min-h-screen">
       <Header variant={"conceitos"} />
-      <div className="xl:container mx-auto relative overflow-hidden mb-16 text-sm md:text-xl [&_p]:leading-8">
-        <div className="grid gap-9 max-w-[810px] mx-auto">
-          <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">
-            Conceitos & Expertise
-          </h1>
+      <div className="container mx-auto relative overflow-hidden mb-16 text-sm md:text-xl [&_p]:leading-8">
+        <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">
+          Conceitos & Expertise
+        </h1>
+        <div className="my-8 md:my-14">
           <ConceitosExpertise />
+        </div>
+        <div className="grid gap-9 max-w-[810px] mx-auto">
           <div className="grid gap-3">
             <h3 className={titleStyle()}>Propósitos do design</h3>
             <p className={grayStyle()}>

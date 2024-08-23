@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/libs/tailwind";
 import Menu from "@/components/Menu";
 import Logo from "@/components/Logo";
@@ -7,7 +9,7 @@ import MenuIcon from "@/components/MenuIcon";
 import HomeFadeImages from "@/components/HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
 import { useTabletOrMobile } from "@/hooks/useTabletOrMobile";
-import { Sheet, SheetClose, SheetContent, SheetTrigger, SheetTitle } from "@/components/core/Sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/core/Sheet";
 
 const DesktopMenuVariants = cva("container mx-auto flex justify-between items-center w-full", {
   variants: {
@@ -40,24 +42,26 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
   const itsMobile = useTabletOrMobile();
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
-  if (itsMobile) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (itsMobile && mounted) {
     return (
       <>
         <Sheet open={toggleMenu} onOpenChange={setToggleMenu}>
-          <div className={cn(DesktopMenuVariants({ variant, className }))}>
+          <div className="container flex w-full justify-between items-center relative">
             <Link href="/">
               <Logo
                 {...{
                   variant: logo === "horizontal" ? "horizontal" : "vertical",
-                  className: DesktopMenuVariants({ logo }),
                 }}
               />
             </Link>
-            <SheetTrigger asChild>
-              <div>
-                <MenuIcon open={toggleMenu} className="size-16 -mr-3" />
-              </div>
-            </SheetTrigger>
+            <button onClick={() => setToggleMenu(true)}>
+              <MenuIcon open={toggleMenu} className="size-16 -mr-3" />
+            </button>
           </div>
           <SheetContent
             side="left"
@@ -68,11 +72,13 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               className="relative z-20 flex flex-col items-center justify-center h-full"
               onClick={() => setToggleMenu(false)}
             >
-              <SheetClose asChild className="absolute top-0 right-0 size-24">
-                <div>
-                  <MenuIcon open={toggleMenu} className="size-24 -mr-3" />
-                </div>
-              </SheetClose>
+              <button
+                className="absolute top-0 right-0 size-24"
+                onClick={() => setToggleMenu(false)}
+              >
+                <MenuIcon open={toggleMenu} className="size-24 -mr-3" />
+              </button>
+
               {menu && <Menu menu={menu} orientation="vertical" variant={"home"} />}
             </div>
             <HomeFadeImages />
@@ -83,17 +89,18 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
   }
 
   return (
-    <div className={cn(DesktopMenuVariants({ variant, className }))}>
-      <Link href="/">
-        <Logo
-          {...{
-            variant: logo === "horizontal" ? "horizontal" : "vertical",
-            className: cn(logo === "horizontal" && "md:my-8 md:mt-3"),
-          }}
-        />
-      </Link>
-      {menu && <Menu menu={menu} orientation="horizontal" />}
-    </div>
+    mounted && (
+      <div className={cn(DesktopMenuVariants({ variant, className }))}>
+        <Link href="/" passHref>
+          <Logo
+            {...{
+              variant: logo === "horizontal" ? "horizontal" : "vertical",
+            }}
+          />
+        </Link>
+        {menu && <Menu menu={menu} orientation="horizontal" />}
+      </div>
+    )
   );
 };
 

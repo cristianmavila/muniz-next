@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "@/libs/tailwind";
 import React, { useState } from "react";
 
 import Logo from "@/components/Logo";
@@ -25,7 +24,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
       <Collapsible
         open={toggleMenu}
         onOpenChange={setToggleMenu}
-        className="flex flex-col justify-center items-center gap-2"
+        className="flex flex-col justify-center items-center gap-8"
       >
         <CollapsibleTrigger>
           <MenuIcon open={toggleMenu} />
@@ -35,7 +34,9 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
             {...{
               variant: "horizontal",
               color: "#FFF",
-              className: "w-full",
+              className: "w-full w-[320px] h-[41px] md:w-[629px] md:h-[43px]",
+              width: 629,
+              height: 43,
             }}
           />
         </Link>

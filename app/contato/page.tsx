@@ -4,7 +4,7 @@ import Form from "@/components/Form";
 
 const LayoutContact = () => {
   return (
-    <div className="bg-white min-h-screen px-4">
+    <div className="bg-white min-h-screen">
       <Header />
       <div className="container relative overflow-hidden mb-16 text-xl text-titleIndice min-h-[calc(100vh-350px)]">
         <h1 className="text-2xl md:text-3xl text-titleIndice font-medium mt-10 mb-9">Contato</h1>
