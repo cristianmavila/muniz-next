@@ -25,7 +25,14 @@ const ListImages = ({
               </Link>
             )}
           >
-            <Image {...image} alt={image.alt} className="w-full" />
+            <div className="group overflow-hidden relative">
+              <Image
+                {...image}
+                alt={image.alt}
+                className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]"
+                quality={100}
+              />
+            </div>
           </ConditionalWrapper>
         );
       })}

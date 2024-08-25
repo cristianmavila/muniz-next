@@ -1,43 +1,49 @@
+import qs from "qs";
+import { getData } from "@/utils";
 import Header from "@/components/Header";
 import ListImages from "@/components/ListImages";
 
-const sections = [
-  {
+async function getHome() {
+  const data = await getData(
+    `/api/homepage`,
+    qs.stringify({
+      populate: {
+        portfolios: {
+          fields: ["name", "thumbnail", "slug"],
+          populate: ["thumbnail"],
+        },
+      },
+    })
+  );
+
+  return data;
+}
+
+export default async function Home() {
+  const data = await getHome();
+  const { portfolios } = data;
+  const mapPortfolio = portfolios?.data?.map(({ slug, name, thumbnail }: any) => ({
+    name: name,
     image: {
-      src: "https://placehold.co/600x400",
-      alt: "Image alt",
-      width: 555,
-      height: 345,
-    },
-  },
-  {
-    image: {
-      src: "https://placehold.co/600x400",
-      alt: "Image alt",
-      width: 555,
-      height: 345,
+      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.formats.large.url}`,
+      width: thumbnail.formats.large.width,
+      height: thumbnail.formats.large.height,
     },
     link: {
-      href: "#here",
-      children: "link test",
+      href: `/portfolio/${slug}`,
+      children: name,
     },
-  },
-  {
-    image: {
-      src: "https://placehold.co/600x400",
-      alt: "Image alt",
-      width: 555,
-      height: 345,
-    },
-  },
-];
+  }));
 
-export default function Home() {
+  //console.dir(data?.portfolios, { depth: null });
+
+  // console.log(mapPortfolio, { deep: null });
+
   return (
     <div className="bg-black">
       <Header variant={"home"} />
       <div className="container relative overflow-hidden pb-11">
-        <ListImages items={sections} />
+        {mapPortfolio && <ListImages items={mapPortfolio} />}
       </div>
     </div>
   );
