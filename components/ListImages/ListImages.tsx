@@ -29,6 +29,8 @@ const ListImages = ({
               <Image
                 {...image}
                 alt={image.alt}
+                width={image.width}
+                height={image.height}
                 className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]"
                 quality={100}
               />

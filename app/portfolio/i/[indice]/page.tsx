@@ -7,12 +7,14 @@ async function getIndice(params: { indice: string }) {
     `/api/portfolios`,
     qs.stringify({
       populate: {
-        fields: ["name", "slug", "thumbnail"],
+        fields: ["name", "slug"],
+        thumbnail: {
+          fields: ["url", "width", "height", "name"],
+        },
         category: {
           fields: ["name", "slug"],
         },
       },
-      populate: ["thumbnail", "category"],
       filters: {
         category: {
           slug: {
@@ -32,14 +34,16 @@ const IndicePage = async ({ params }: { params: { indice: string } }) => {
 
   const name = data[0]?.category?.name || "Nenhum projeto encontrado";
 
+  // console.dir(data, { depth: null });
+
   const mapIndices = data?.map(({ id, name, thumbnail, slug }: any) => ({
     id: id,
     name: name,
     thumbnail: {
-      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.formats.large.url}`,
-      width: thumbnail.formats.large.width,
-      height: thumbnail.formats.large.height,
-      alt: thumbnail.formats.large.name,
+      src: (thumbnail.url && `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.url}`) || "",
+      width: thumbnail.width,
+      height: thumbnail.height,
+      alt: thumbnail.name,
     },
     link: {
       href: `/portfolio/${slug}`,

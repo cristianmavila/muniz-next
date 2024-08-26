@@ -25,9 +25,9 @@ export default async function Home() {
   const mapPortfolio = portfolios?.data?.map(({ slug, name, thumbnail }: any) => ({
     name: name,
     image: {
-      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.formats.large.url}`,
-      width: thumbnail.formats.large.width,
-      height: thumbnail.formats.large.height,
+      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.url}`,
+      width: thumbnail.width,
+      height: thumbnail.height,
     },
     link: {
       href: `/portfolio/${slug}`,
