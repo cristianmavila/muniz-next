@@ -32,7 +32,7 @@ const IndicePage = async ({ params }: { params: { indice: string } }) => {
   const items = await getIndice(params);
   const { data } = items;
 
-  const name = data[0]?.category?.name || "Nenhum projeto encontrado";
+  const name = (data && data[0]?.category?.name) || "Nenhum projeto encontrado";
 
   // console.dir(data, { depth: null });
 
