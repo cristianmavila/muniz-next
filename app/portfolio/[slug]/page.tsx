@@ -110,7 +110,7 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const prevProject = await getPrevProject(project.publishedAt, project.category.slug);
   const nextProject = await getNextProject(project.publishedAt, project.category.slug);
 
-  console.dir(project, { depth: null });
+  // console.dir(project, { depth: null });
   // console.dir(prevProject, { depth: null });
   // console.dir(nextProject, { depth: null });
 

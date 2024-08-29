@@ -22,6 +22,7 @@ async function getIndice(params: { indice: string }) {
           },
         },
       },
+      sort: "publishedAt:asc",
     })
   );
 
