@@ -31,7 +31,7 @@ const ListImages = ({
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]"
+                className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100"
                 quality={100}
               />
             </div>
