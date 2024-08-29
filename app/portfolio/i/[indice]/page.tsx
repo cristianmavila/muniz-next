@@ -23,6 +23,7 @@ async function getIndice(params: { indice: string }) {
         },
       },
       sort: "publishedAt:asc",
+      pagination: { limit: 35 },
     })
   );
 
