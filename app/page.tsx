@@ -9,8 +9,8 @@ async function getHome() {
     qs.stringify({
       populate: {
         portfolios: {
-          fields: ["name", "thumbnail", "slug"],
-          populate: ["thumbnail"],
+          fields: ["name", "slug", "thumb_home"],
+          populate: ["thumb_home"],
         },
       },
     })
@@ -22,12 +22,12 @@ async function getHome() {
 export default async function Home() {
   const data = await getHome();
   const { portfolios } = data;
-  const mapPortfolio = portfolios?.data?.map(({ slug, name, thumbnail }: any) => ({
+  const mapPortfolio = portfolios?.data?.map(({ slug, name, thumb_home }: any) => ({
     name: name,
     image: {
-      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.url}`,
-      width: thumbnail.width,
-      height: thumbnail.height,
+      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumb_home.url}`,
+      width: thumb_home.width,
+      height: thumb_home.height,
     },
     link: {
       href: `/portfolio/${slug}`,
