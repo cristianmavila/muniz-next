@@ -8,7 +8,7 @@ async function getHome() {
     `/api/homepage`,
     qs.stringify({
       populate: {
-        section: {
+        images: {
           fields: ["image"],
           populate: ["image"],
         },
@@ -25,15 +25,15 @@ async function getHome() {
 
 export default async function Home() {
   const data = await getHome();
-  const { portfolios, section } = data;
+  const { portfolios, images } = data;
 
-  // const mapSections = section?.data?.map(({ image }: any) => ({
-  //   image: {
-  //     src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`,
-  //     width: image.width,
-  //     height: image.height,
-  //   },
-  // }));
+  const mapSections = images?.map(({ image }: any) => ({
+    image: {
+      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`,
+      width: image.width,
+      height: image.height,
+    },
+  }));
 
   const mapPortfolio = portfolios?.data?.map(({ slug, name, thumb_home }: any) => ({
     name: name,
@@ -51,15 +51,16 @@ export default async function Home() {
     },
   }));
 
-  //console.dir(data?.portfolios, { depth: null });
-  // console.dir(data?.section, { depth: null });
+  // console.dir(data?.portfolios, { depth: null });
+  // console.dir(data?.images, { depth: null });
   // console.log(mapPortfolio, { deep: null });
+  // console.log(images, { depth: null });
 
   return (
     <div className="bg-black">
       <Header variant={"home"} />
       <div className="container relative overflow-hidden pb-11">
-        {/* {mapSections && <ListImages items={mapSections} />} */}
+        {mapSections && <ListImages items={mapSections} />}
         {mapPortfolio && <ListImages items={mapPortfolio} imageClassName="bg-gray-950" />}
       </div>
     </div>
