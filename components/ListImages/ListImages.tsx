@@ -2,19 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { ImageProps, LinkProps } from "@/components/ProjectItem";
 import ConditionalWrapper from "@/components/ConditionalWrapper";
+import { cn } from "@/libs/tailwind";
 
 const ListImages = ({
   items,
+  imageClassName,
 }: {
+  imageClassName?: string;
   items: {
     image: ImageProps;
     link?: LinkProps;
+    name?: string;
   }[];
 }) => {
   return (
     <div className="grid gap-5 mt-5 md:gap-12 md:mt-12">
       {items?.map((project, index) => {
-        const { image, link } = project;
+        const { image, link, name } = project;
         return (
           <ConditionalWrapper
             key={index}
@@ -28,10 +32,13 @@ const ListImages = ({
             <div className="group overflow-hidden relative">
               <Image
                 {...image}
-                alt={image.alt}
+                alt={name || "image alt"}
                 width={image.width}
                 height={image.height}
-                className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100"
+                className={cn(
+                  "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100",
+                  imageClassName
+                )}
                 quality={100}
               />
             </div>
