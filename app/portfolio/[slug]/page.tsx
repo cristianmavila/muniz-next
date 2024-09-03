@@ -118,7 +118,7 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const name = project?.name || "";
   const description = project?.description || "";
   const sections: { image: ImageProps; link?: LinkProps }[] =
-    project?.images.data?.map((project: any) => ({
+    project?.images?.data?.map((project: any) => ({
       image: {
         src: (project.url && `${project.url}`) || "",
         width: project.width,
