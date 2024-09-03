@@ -29,7 +29,7 @@ export default async function Home() {
 
   const mapSections = images?.map(({ image }: any) => ({
     image: {
-      src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${image.url}`,
+      src: `${image.url}`,
       width: image.width,
       height: image.height,
     },
@@ -40,7 +40,7 @@ export default async function Home() {
     image:
       thumb_home.url !== undefined
         ? {
-            src: `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumb_home.url}`,
+            src: `${thumb_home.url}`,
             width: thumb_home.width | 0,
             height: thumb_home.height | 0,
           }

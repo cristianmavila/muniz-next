@@ -20,6 +20,10 @@ const projectQuery = (params: { slug: string }) =>
         fields: ["link", "image"],
         populate: ["image"],
       },
+      images: {
+        fields: ["url", "width", "height", "name"],
+        sort: "name:ASC",
+      },
     },
     filters: {
       slug: {
@@ -46,9 +50,6 @@ export async function generateStaticParams() {
 
 async function getPortfolio(params: { slug: string }) {
   const data = await getData(`/api/portfolios`, projectQuery(params));
-
-  // console.dir(data, { depth: null });
-
   return data.data[0];
 }
 
@@ -117,18 +118,12 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const name = project?.name || "";
   const description = project?.description || "";
   const sections: { image: ImageProps; link?: LinkProps }[] =
-    project?.section?.map((project: any) => ({
+    project?.images.data?.map((project: any) => ({
       image: {
-        src:
-          (project.image.url && `${process.env.NEXT_PUBLIC_API_BASE_URL}${project.image.url}`) ||
-          "",
-        width: project.image.width,
-        height: project.image.height,
-        alt: project.image.name,
-      },
-      link: {
-        href: project.link,
-        children: project.image.name,
+        src: (project.url && `${project.url}`) || "",
+        width: project.width,
+        height: project.height,
+        alt: project.name,
       },
     })) || [];
   const tags: string[] = project?.tags?.data?.map((tag: any) => tag.name) || [];

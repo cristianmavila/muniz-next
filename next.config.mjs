@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "seahorse-app-os68v.ondigitalocean.app",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 };

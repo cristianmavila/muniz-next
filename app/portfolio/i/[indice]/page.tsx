@@ -42,7 +42,7 @@ const IndicePage = async ({ params }: { params: { indice: string } }) => {
     id: id,
     name: name,
     thumbnail: {
-      src: (thumbnail.url && `${process.env.NEXT_PUBLIC_API_BASE_URL}${thumbnail.url}`) || "",
+      src: (thumbnail.url && `${thumbnail.url}`) || "",
       width: thumbnail.width,
       height: thumbnail.height,
       alt: thumbnail.name,
