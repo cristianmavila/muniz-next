@@ -111,13 +111,38 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const prevProject = await getPrevProject(project.publishedAt, project.category?.slug);
   const nextProject = await getNextProject(project.publishedAt, project.category?.slug);
 
-  // console.dir(project, { depth: null });
+  console.dir(project, { depth: null });
   // console.dir(prevProject, { depth: null });
   // console.dir(nextProject, { depth: null });
 
+  let array = [
+    "10_minerva,png",
+    "1_minerva,png",
+    "2_minerva,png",
+    "3_minerva,png",
+    "11_minerva,png",
+    "12_minerva,png",
+  ];
+
+  console.log(
+    array.sort((a: any, b: any) => {
+      let na = Number(a.split("_")[0]);
+      let nb = Number(b.split("_")[0]);
+      console.log(na);
+      if (na < nb) {
+        return -1;
+      }
+
+      if (na > nb) {
+        return 1;
+      }
+      return 0;
+    })
+  );
+
   const name = project?.name || "";
   const description = project?.description || "";
-  const sections: { image: ImageProps; link?: LinkProps }[] =
+  let sections: { image: ImageProps; link?: LinkProps }[] =
     project?.images?.data?.map((project: any) => ({
       image: {
         src: (project.url && `${project.url}`) || "",
@@ -126,6 +151,20 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
         alt: project.name,
       },
     })) || [];
+
+  sections = sections?.sort((a: any, b: any) => {
+    let na = Number(a?.image?.alt.split("-")[0]);
+    let nb = Number(b?.image?.alt.split("-")[0]);
+    if (na < nb) {
+      return -1;
+    }
+
+    if (na > nb) {
+      return 1;
+    }
+    return 0;
+  });
+
   const tags: string[] = project?.tags?.data?.map((tag: any) => tag.name) || [];
 
   return (
