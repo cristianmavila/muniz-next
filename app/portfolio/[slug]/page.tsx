@@ -162,24 +162,26 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
         <div className="text-lg md:text-2xl leading-6 md:!leading-9">{description}</div>
       )}
       {sections && <ListImages items={sections} />}
-      <div className="flex justify-between my-12 relative">
-        {prevProject && (
-          <Link
-            href={`/portfolio/${prevProject.slug}`}
-            className="flex gap-4 items-center text-[15px] text-titleIndice absolute left-0 top-0"
-          >
-            <ChevronLeft className="w-[17px] h-[31px]" /> Anterior
-          </Link>
-        )}
-        {nextProject && (
-          <Link
-            href={`/portfolio/${nextProject.slug}`}
-            className="flex gap-4 items-center text-[15px] text-titleIndice absolute top-0 right-0"
-          >
-            Próximo <ChevronLeft className="w-[17px] h-[31px] rotate-180" />
-          </Link>
-        )}
-      </div>
+      {(prevProject || nextProject) && (
+        <div className="flex justify-between my-12 relative min-h-[30px]">
+          {prevProject && (
+            <Link
+              href={`/portfolio/${prevProject.slug}`}
+              className="flex gap-4 items-center text-[15px] text-titleIndice absolute left-0 top-0"
+            >
+              <ChevronLeft className="w-[17px] h-[31px]" /> Anterior
+            </Link>
+          )}
+          {nextProject && (
+            <Link
+              href={`/portfolio/${nextProject.slug}`}
+              className="flex gap-4 items-center text-[15px] text-titleIndice absolute top-0 right-0"
+            >
+              Próximo <ChevronLeft className="w-[17px] h-[31px] rotate-180" />
+            </Link>
+          )}
+        </div>
+      )}
     </div>
   );
 };
