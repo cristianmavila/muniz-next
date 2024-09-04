@@ -11,12 +11,12 @@ async function getIndice(params: { indice: string }) {
         thumbnail: {
           fields: ["url", "width", "height", "name"],
         },
-        category: {
+        categories: {
           fields: ["name", "slug"],
         },
       },
       filters: {
-        category: {
+        categories: {
           slug: {
             $eq: params.indice,
           },
@@ -34,7 +34,7 @@ const IndicePage = async ({ params }: { params: { indice: string } }) => {
   const items = await getIndice(params);
   const { data } = items;
 
-  const name = (data && data[0]?.category?.name) || "Nenhum projeto encontrado";
+  const name = (data && data[0]?.categories?.data[0]?.name) || "Nenhum projeto encontrado";
 
   // console.dir(data, { depth: null });
 

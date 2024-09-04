@@ -108,8 +108,8 @@ async function getNextProject(publishedAt: string, category: string) {
 
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
-  const prevProject = await getPrevProject(project.publishedAt, project.category.slug);
-  const nextProject = await getNextProject(project.publishedAt, project.category.slug);
+  const prevProject = await getPrevProject(project.publishedAt, project.category?.slug);
+  const nextProject = await getNextProject(project.publishedAt, project.category?.slug);
 
   // console.dir(project, { depth: null });
   // console.dir(prevProject, { depth: null });
