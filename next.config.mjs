@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  i18n: {
+    locales: ["pt-BR"],
+    defaultLocale: "pt-BR",
+    localeDetection: false,
+  },
   images: {
     // deviceSizes: [480, 750, 1200],
     // formats: ["image/avif", "image/webp"],
