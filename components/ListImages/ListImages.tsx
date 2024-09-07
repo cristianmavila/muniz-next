@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { ImageProps, LinkProps } from "@/components/ProjectItem";
 import ConditionalWrapper from "@/components/ConditionalWrapper";
 import { cn } from "@/libs/tailwind";
@@ -30,7 +31,7 @@ const ListImages = ({
             )}
           >
             <div className="group overflow-hidden relative">
-              <Image
+              {/* <Image
                 {...image}
                 alt={name || "image alt"}
                 width={image.width}
@@ -40,6 +41,17 @@ const ListImages = ({
                   imageClassName
                 )}
                 quality={100}
+              /> */}
+              <img
+                {...image}
+                alt={name || "image alt"}
+                width={image.width}
+                height={image.height}
+                className={cn(
+                  "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]",
+                  imageClassName
+                )}
+                loading="lazy"
               />
             </div>
           </ConditionalWrapper>

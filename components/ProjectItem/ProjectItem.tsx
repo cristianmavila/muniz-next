@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 export interface ProjectItemProps {
   id?: number;
@@ -35,13 +36,21 @@ const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
       <h2 className="text-2xl md:text-4xl pt-7 pb-5 font-medium group-hover:text-brand">{name}</h2>
       <div className="w-full overflow-hidden relative">
         {thumbnail && thumbnail.src && (
-          <Image
+          // <Image
+          //   src={thumbnail.src}
+          //   alt={thumbnail.alt}
+          //   width={thumbnail.width}
+          //   height={thumbnail.height}
+          //   quality={100}
+          //   className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100"
+          // />
+          <img
             src={thumbnail.src}
             alt={thumbnail.alt}
             width={thumbnail.width}
             height={thumbnail.height}
-            quality={100}
             className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100"
+            loading="lazy"
           />
         )}
       </div>
