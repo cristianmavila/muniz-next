@@ -57,7 +57,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/01-home.webp"}
                 alt="Home image 01"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
             <SwiperSlide className="!h-full">
@@ -74,7 +74,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/02-home.webp"}
                 alt="Home image 2"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
 
@@ -92,7 +92,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/03-home.webp"}
                 alt="Home image 03"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
           </>
@@ -113,7 +113,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/01-home-mobile.webp"}
                 alt="Home image 01"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
             <SwiperSlide className="!h-full">
@@ -130,7 +130,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/02-home-mobile.webp"}
                 alt="Home image 02"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
             <SwiperSlide className="!h-full">
@@ -147,7 +147,7 @@ const HomeFadeImages = () => {
                 loading="lazy"
                 src={"https://ik.imagekit.io/tnm6pfork/03-home-mobile.webp"}
                 alt="Home image 03"
-                className="object-cover h-screen"
+                className="object-cover h-screen w-full"
               />
             </SwiperSlide>
           </>
