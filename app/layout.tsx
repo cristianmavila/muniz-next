@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${inter.className}`}>{children}</body>
       <GoogleAnalytics gaId="G-B7KC3YD0V6" />
     </html>

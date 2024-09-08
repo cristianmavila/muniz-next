@@ -16,7 +16,7 @@ const MenuVariants = cva("", {
       vertical:
         "z-10 relative flex-col [&_ul]:flex-col [&_ul]:items-start [&_ul_a]:normal-case text-white flex-none",
       horizontal: "hidden lg:block",
-      home: "[&_ul]:flex-col flex-none [&_ul]:items-start w-full [&_ul_a:hover]:text-white [&_ul_a]:px-0 [&_ul_a]:flex-col [&_ul_a]:flex text-white max-w-none justify-start max-w-[350px]",
+      home: "[&_ul]:flex-col flex-none [&_ul]:items-start w-full [&_ul_a:hover]:text-brand [&_ul_a]:px-0 [&_ul_a]:flex-col [&_ul_a]:flex text-white max-w-none justify-start max-w-[350px]",
     },
   },
   defaultVariants: {
