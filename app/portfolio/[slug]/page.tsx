@@ -13,7 +13,7 @@ const projectQuery = (params: { slug: string }) =>
       tags: {
         fields: ["name"],
       },
-      category: {
+      categories: {
         fields: ["id", "slug"],
       },
       section: {
@@ -64,7 +64,7 @@ async function getPrevProject(publishedAt: string, category: string) {
         publishedAt: {
           $lt: publishedAt,
         },
-        category: {
+        categories: {
           slug: {
             $eq: category,
           },
@@ -91,7 +91,7 @@ async function getNextProject(publishedAt: string, category: string) {
         publishedAt: {
           $gt: publishedAt,
         },
-        category: {
+        categories: {
           slug: {
             $eq: category,
           },
@@ -108,8 +108,9 @@ async function getNextProject(publishedAt: string, category: string) {
 
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
-  const prevProject = await getPrevProject(project.publishedAt, project.category?.slug);
-  const nextProject = await getNextProject(project.publishedAt, project.category?.slug);
+  const categoryProject = project?.categories?.data[0] && project?.categories?.data[0]?.slug;
+  const prevProject = await getPrevProject(project.publishedAt, categoryProject);
+  const nextProject = await getNextProject(project.publishedAt, categoryProject);
 
   // console.dir(project, { depth: null });
   // console.dir(prevProject, { depth: null });
