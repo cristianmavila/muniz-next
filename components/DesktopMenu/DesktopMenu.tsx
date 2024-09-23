@@ -59,7 +59,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
                 }}
               />
             </Link>
-            <button onClick={() => setToggleMenu(true)}>
+            <button onClick={() => setToggleMenu(true)} className={cn(toggleMenu && "opacity-0")}>
               <MenuIcon open={toggleMenu} className="size-16 -mr-3" />
             </button>
           </div>
@@ -69,7 +69,10 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
           >
             <SheetTitle className="sr-only">Mobile menu</SheetTitle>
             <div
-              className="relative z-20 flex flex-col items-center justify-center h-full"
+              className={cn(
+                "relative opacity-0 z-20 flex flex-col items-center justify-center h-full transition-all duration-1000 delay-500 animate-fadeIn",
+                toggleMenu && "opacity-100"
+              )}
               onClick={() => setToggleMenu(false)}
             >
               <button

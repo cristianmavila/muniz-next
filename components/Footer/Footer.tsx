@@ -6,7 +6,7 @@ const Footer = ({ socialLinksClassName }: { socialLinksClassName?: string }) => 
       <div className={socialLinksClassName}>
         <SocialLinks />
       </div>
-      <div className="p-4 mt-4 text-white bg-black text-center text-[8px] md:text-base w-full">
+      <div className="p-4 mt-4 text-white bg-black text-center text-[8px] md:text-base w-full font-normal">
         <p>2024 | Jorge Muniz &amp; Crédito | TODOS OS DIREITOS RESERVADOS</p>
         <p>
           <a href="mailto:muniz@jorgemuniz.com.br" title="muniz@jorgemuniz.com.br">
