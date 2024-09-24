@@ -20,7 +20,6 @@ const ListImages = ({
     <div className="grid gap-5 mt-5 md:gap-12 md:mt-12">
       {items?.map((project, index) => {
         const { image, link, name } = project;
-        console.log(image);
         return (
           <ConditionalWrapper
             key={index}
