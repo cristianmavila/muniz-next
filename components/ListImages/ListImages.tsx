@@ -20,6 +20,7 @@ const ListImages = ({
     <div className="grid gap-5 mt-5 md:gap-12 md:mt-12">
       {items?.map((project, index) => {
         const { image, link, name } = project;
+        console.log(image);
         return (
           <ConditionalWrapper
             key={index}
@@ -44,11 +45,11 @@ const ListImages = ({
               /> */}
               <img
                 {...image}
-                alt={name || "image alt"}
+                alt={image.alt || "image alt"}
                 width={image.width}
                 height={image.height}
                 className={cn(
-                  "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%]",
+                  "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] indent-[100%] whitespace-nowrap overflow-hidden",
                   imageClassName
                 )}
                 loading="lazy"
