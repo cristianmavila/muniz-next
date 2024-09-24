@@ -11,7 +11,7 @@ import { EffectFade, Autoplay } from "swiper/modules";
 
 const SliderExpertise = () => {
   return (
-    <>
+    <div className="duration-300 animate-fadeIn">
       <Swiper
         speed={100}
         modules={[EffectFade, Autoplay]}
@@ -63,7 +63,7 @@ const SliderExpertise = () => {
         className="w-full mt-14"
         src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727215823/Title-EXPERTISE_glfuv0.png"
       />
-    </>
+    </div>
   );
 };
 
