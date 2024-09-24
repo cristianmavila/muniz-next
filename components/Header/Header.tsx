@@ -33,8 +33,8 @@ const menu = [
     children: "Varejo & Produto",
   },
   {
-    href: "/conceitos-expertise/",
-    children: "Conceitos & Expertise",
+    href: "/expertise/",
+    children: "Expertise",
   },
   {
     href: "/contato",
