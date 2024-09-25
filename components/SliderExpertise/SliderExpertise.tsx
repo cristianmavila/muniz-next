@@ -60,8 +60,8 @@ const SliderExpertise = () => {
         height={1877}
         alt="Expertise title image"
         loading="lazy"
-        className="w-full mt-14"
-        src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727215823/Title-EXPERTISE_glfuv0.png"
+        className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden lg:px-36 mx-auto"
+        src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727266473/Title-EXPERTISE_roffx2.png"
       />
     </div>
   );

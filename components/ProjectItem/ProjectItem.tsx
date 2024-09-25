@@ -33,7 +33,9 @@ const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
   const { href, title, target } = link;
   return (
     <Link {...{ href, title, target }} className="w-full group">
-      <h2 className="text-3xl lg:text-5xl pt-7 pb-5 font-medium group-hover:text-brand">{name}</h2>
+      <h2 className="text-3xl lg:text-[40px] pt-7 pb-5 font-medium group-hover:text-brand">
+        {name}
+      </h2>
       <div className="w-full overflow-hidden relative">
         {thumbnail && thumbnail.src && (
           // <Image
@@ -49,7 +51,7 @@ const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
             alt={thumbnail.alt}
             width={thumbnail.width}
             height={thumbnail.height}
-            className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100"
+            className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100 indent-[100%] whitespace-nowrap overflow-hidden"
             loading="lazy"
           />
         )}

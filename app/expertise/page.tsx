@@ -16,7 +16,7 @@ const LayoutExpertise = () => {
         <div className="my-8 md:my-14">
           <SliderExpertise />
         </div>
-        <div className="grid gap-9 max-w-[650px] mx-8 md:mx-auto">
+        <div className="grid gap-9 lg:max-w-[650px] w-10/12 md:w-3/4 mx-auto">
           <div className="grid gap-7">
             <p className="leading-8">
               Este portfólio está focado no protagonismo das marcas e reúne minha experiência na

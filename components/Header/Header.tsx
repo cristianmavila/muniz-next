@@ -37,6 +37,10 @@ const menu = [
     children: "Expertise",
   },
   {
+    href: "/insights/",
+    children: "Insights",
+  },
+  {
     href: "/contato",
     children: "Contato",
   },

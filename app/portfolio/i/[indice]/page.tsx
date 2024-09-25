@@ -54,7 +54,7 @@ const IndicePage = async ({ params }: { params: { indice: string } }) => {
   }));
 
   return (
-    <div className="container mx-auto relative overflow-hidden mb-16">
+    <div className="container mx-auto relative overflow-hidden mb-16 animate-fadeIn">
       <h1 className="text-2xl lg:text-3xl text-titleIndice font-medium mt-10 mb-5">{name}</h1>
       {mapIndices && <ListIndice projects={mapIndices} />}
     </div>

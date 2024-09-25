@@ -144,7 +144,7 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const tags: string[] = project?.tags?.data?.map((tag: any) => tag.name) || [];
 
   return (
-    <div className="container relative overflow-hidden md:mb-16">
+    <div className="container relative overflow-hidden md:mb-16 animate-fadeIn">
       <h1 className="text-[28px] md:text-[45px] font-medium mt-10 mb-5 leading-none">{name}</h1>
       {tags && tags?.length > 0 && (
         <div className="text-sm md:text-lg text-titleIndice mb-5">

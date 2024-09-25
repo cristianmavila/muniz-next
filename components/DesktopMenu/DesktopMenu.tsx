@@ -75,6 +75,13 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               )}
               onClick={() => setToggleMenu(false)}
             >
+              <div className="absolute top-0 left-0 py-5 px-4">
+                <Logo
+                  {...{
+                    variant: logo === "horizontal" ? "horizontal" : "vertical",
+                  }}
+                />
+              </div>
               <button
                 className="absolute top-0 right-0 size-24"
                 onClick={() => setToggleMenu(false)}
