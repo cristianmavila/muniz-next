@@ -16,21 +16,21 @@ const LayoutExpertise = () => {
         <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">Insights</h1>
         <div className="my-8 md:my-14">
           {/* Heading images */}
+          <img
+            width={2500}
+            height={1875}
+            alt="Insights luz"
+            loading="lazy"
+            className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden transition-all animate-fade"
+            src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727215823/LUZ-Insights_o52nqa.jpg"
+          />
           <div className="duration-300 animate-fadeIn">
-            <img
-              width={2500}
-              height={1875}
-              alt="Insights luz"
-              loading="lazy"
-              className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden"
-              src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727215823/LUZ-Insights_o52nqa.jpg"
-            />
             <img
               width={2500}
               height={1877}
               alt="Insights title image"
               loading="lazy"
-              className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden lg:px-36 mx-auto"
+              className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden lg:px-36 mx-auto hover:scale-[112%] duration-500 ease-in-out"
               src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727266473/Title-INSIGHTS_ygd2xy.png"
             />
           </div>

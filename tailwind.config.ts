@@ -32,6 +32,7 @@ const config: Config = {
       },
       animation: {
         fadeIn: "fadeIn 3s ease-in-out",
+        fade: "fadePulse 4s infinite;",
       },
       keyframes: (theme) => ({
         fadeIn: {

@@ -1,9 +1,9 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 
 export const viewport: Viewport = {
   themeColor: "#000000",

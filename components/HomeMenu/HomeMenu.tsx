@@ -27,7 +27,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
         className="flex flex-col justify-center items-center gap-8"
       >
         <CollapsibleTrigger>
-          <MenuIcon className="w-[90px] md:w-[140px] lg:w-[90px]" open={toggleMenu} />
+          <MenuIcon className="w-[90px] md:w-[220px] xl:w-[90px]" open={toggleMenu} />
         </CollapsibleTrigger>
         <Link href="/">
           <Logo
@@ -40,7 +40,7 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
             }}
           />
         </Link>
-        <ChevronDown className="w-[100px] md:w-48 lg:w-[100px]" />
+        <ChevronDown className="w-[100px] md:w-48 xl:w-[100px]" />
         <CollapsibleContent className="w-full">
           {menu && <Menu menu={menu} variant={"home"} orientation="vertical" />}
         </CollapsibleContent>
