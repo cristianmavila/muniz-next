@@ -34,18 +34,18 @@ const LayoutExpertise = () => {
           </div>
 
           <div>
-            <h3 className={cn(titleStyle(), "md:text-5xl !leading-normal")}>
+            <h3 className={cn(titleStyle(), "text-2xl md:text-5xl !leading-normal")}>
               Branding é conhecimento, Branding é experiência
             </h3>
           </div>
 
           <div className="grid gap-4">
-            <p className="text-3xl md:text-5xl">+ 1200 Marcas</p>
-            <p className="text-3xl md:text-5xl">+ 1700 Identidades visuais</p>
-            <p className="text-3xl md:text-5xl">+ 40 anos</p>
+            <p className="text-2xl md:text-5xl">+ 1200 Marcas</p>
+            <p className="text-2xl md:text-5xl">+ 1700 Identidades visuais</p>
+            <p className="text-2xl md:text-5xl">+ 40 anos</p>
           </div>
 
-          <div className="text-2xl md:text-3xl">
+          <div className="text-xl md:text-3xl">
             <p className="leading-relaxed">
               * Análise & Estratégia de Marca
               <br /> * Conceito de Marca
@@ -60,7 +60,7 @@ const LayoutExpertise = () => {
           <h3 className={titleStyle()}>Créditos</h3>
 
           <div className="grid gap-3">
-            <p className="text-[13px] !leading-6">
+            <p className="text-xs md:text-[13px] !leading-6">
               <span className="text-brand">GAD DESIGN</span> Alguns projetos foram criados no Gad
               Design entre 1998 e 2001 <span className="text-brand">SPORT CLUB INTERNACIONAL</span>{" "}
               Redesign Jorge Muniz, Sandro Manfredini e Edu Bortolon{" "}
