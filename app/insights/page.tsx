@@ -21,7 +21,7 @@ const LayoutExpertise = () => {
             height={1875}
             alt="Insights luz"
             loading="lazy"
-            className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden transition-all animate-fade"
+            className="w-full mt-8 lg:mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden transition-all animate-fade"
             src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1727215823/LUZ-Insights_o52nqa.jpg"
           />
           <div className="duration-300 animate-fadeIn">

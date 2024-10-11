@@ -2,6 +2,7 @@ import qs from "qs";
 import Link from "next/link";
 import { getData } from "@/utils";
 import { Fragment } from "react";
+import parse from "html-react-parser";
 import ListImages from "@/components/ListImages";
 import ChevronLeft from "@/components/ChevronLeft";
 import { ImageProps, LinkProps } from "@/components/ProjectItem";
@@ -109,8 +110,8 @@ async function getNextProject(publishedAt: string, category: string) {
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
   const categoryProject = project?.categories?.data[0] && project?.categories?.data[0]?.slug;
-  const prevProject = await getPrevProject(project.publishedAt, categoryProject);
-  const nextProject = await getNextProject(project.publishedAt, categoryProject);
+  const prevProject = await getPrevProject(project?.publishedAt, categoryProject);
+  const nextProject = await getNextProject(project?.publishedAt, categoryProject);
 
   // console.dir(project, { depth: null });
   // console.dir(prevProject, { depth: null });
@@ -160,7 +161,9 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
         </div>
       )}
       {description && (
-        <div className="text-lg md:text-2xl leading-6 md:!leading-9">{description}</div>
+        <div className="text-lg md:text-2xl leading-6 md:!leading-9">
+          {parse(description.replace(/\r|\n/g, "<br>"))}
+        </div>
       )}
       {sections && <ListImages items={sections} />}
       {(prevProject || nextProject) && (
