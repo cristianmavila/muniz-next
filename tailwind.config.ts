@@ -21,8 +21,10 @@ const config: Config = {
         screens: {
           sm: "100%",
           md: "100%",
-          lg: "100%",
-          xl: "1170px",
+          lg: "900px",
+          xl: "1000px",
+          // lg: "100%",
+          // xl: "1170px",
         },
         padding: {
           DEFAULT: "1rem",
