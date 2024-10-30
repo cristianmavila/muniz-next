@@ -62,7 +62,7 @@ const LayoutExpertise = () => {
             função, criando uma simbiose entre forma e utilidade que confere solidez ao projeto.
           </p>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Interpretação prática</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Interpretação prática</h3>
             <p>
               O design não é apenas aparência; é uma interpretação das necessidades do usuário. Cada
               elemento deve servir a um propósito claro, garantindo que a forma seja visualmente
@@ -71,7 +71,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Harmonia entre forma e função</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Harmonia entre forma e função</h3>
             <p>
               A verdadeira força do design está na integração entre forma e função. Quando esses
               aspectos se complementam, o resultado é um design que se destaca no mercado,
@@ -79,7 +79,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Além da estética</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Além da estética</h3>
             <p>
               O design vai além da estética; é uma ferramenta para resolver problemas e atender às
               necessidades dos usuários. A função deve ser o norte do design, e a verdadeira beleza
@@ -94,7 +94,7 @@ const LayoutExpertise = () => {
             construir sobre uma base universal, fundamentada em conceitos verdadeiros e duradouros.
           </p>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Solidez e foco</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Solidez e foco</h3>
             <p>
               A solução de branding deve ser sólida e focada, de modo que, mesmo com o passar do
               tempo, não precise ser completamente ajustada ou refeita. Essa solidez garante que a
@@ -103,7 +103,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Entendendo a intenção</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Entendendo a intenção</h3>
             <p>
               Para criar uma imagem de marca competitiva e atemporal, é fundamental entender e
               traduzir os atributos que definem a intenção da marca. Isso envolve identificar os
@@ -112,7 +112,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Posicionamento consistente</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Posicionamento consistente</h3>
             <p>
               Um projeto de branding bem-sucedido representa um posicionamento consistente, que não
               se deixa levar por modismos passageiros. Essa consistência é essencial para construir
@@ -120,7 +120,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Adaptabilidade</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Adaptabilidade</h3>
             <p>
               Embora a essência da marca deva permanecer constante, isso não significa que o design
               não possa evoluir com o tempo. Um bom projeto de branding deve ser adaptável,
@@ -146,7 +146,7 @@ const LayoutExpertise = () => {
             desprovida de elementos que desviem a atenção do que realmente importa.
           </p>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">A busca pela simplicidade</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">A busca pela simplicidade</h3>
             <p>
               A busca pela simplicidade exige perseverança e profundo conhecimento. Esse caminho
               seguro permite alcançar o impacto visual necessário a uma imagem de marca que perdure
@@ -155,7 +155,7 @@ const LayoutExpertise = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Simplicidade poderosa</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Simplicidade poderosa</h3>
             <p>
               Ao observar as marcas mais poderosas e bem construídas do mundo, é possível perceber
               essa qualidade em ação: são marcas facilmente reconhecíveis por sua &quot;simplicidade
@@ -165,7 +165,7 @@ const LayoutExpertise = () => {
           </div>
 
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Não é estratégia, é filosofia</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Não é estratégia, é filosofia</h3>
             <p>
               A simplicidade não é apenas uma estratégia de design, mas uma filosofia que deve
               permear todas as ações de branding.
@@ -204,7 +204,7 @@ const LayoutExpertise = () => {
           <h3 className="text-brand text-2xl md:text-3xl">Níveis do design emocional</h3>
 
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Visceral</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Visceral</h3>
             <p>
               Relaciona-se à primeira impressão que um produto causa, influenciada por aspectos como
               aparência, textura e cor. É nesse nível que as emoções mais imediatas são despertadas.
@@ -212,7 +212,7 @@ const LayoutExpertise = () => {
           </div>
 
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Comportamental</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Comportamental</h3>
             <p>
               Refere-se à satisfação ou frustração que o usuário experimenta ao interagir com o
               produto. Aqui, a experiência prática se torna crucial.
@@ -220,7 +220,7 @@ const LayoutExpertise = () => {
           </div>
 
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Reflexivo</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Reflexivo</h3>
             <p>
               Envolve a avaliação consciente que o consumidor faz sobre o produto, considerando sua
               utilidade, valor e a personalidade que ele representa.
@@ -233,7 +233,7 @@ const LayoutExpertise = () => {
           </p>
 
           <div>
-            <h3 className="text-brand text-3xl md:text-2xl">Conexão emocional e fidelização</h3>
+            <h3 className="text-[#FF8A3F] text-3xl md:text-2xl">Conexão emocional e fidelização</h3>
             <p>
               Marcas que conseguem estabelecer uma conexão emocional com seus clientes tendem a se
               destacar no mercado. Essa conexão não apenas aumenta a satisfação e a lealdade dos
