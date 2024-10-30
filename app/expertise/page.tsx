@@ -40,9 +40,9 @@ const LayoutExpertise = () => {
           </div>
 
           <div className="grid gap-4">
-            <p className="text-2xl md:text-5xl">+ 1200 Marcas</p>
-            <p className="text-2xl md:text-5xl">+ 1700 Identidades visuais</p>
-            <p className="text-2xl md:text-5xl">+ 40 anos</p>
+            <p className="text-2xl md:text-4xl lg:text-5xl">+ 1200 Marcas</p>
+            <p className="text-2xl md:text-4xl lg:text-5xl">+ 1700 Identidades visuais</p>
+            <p className="text-2xl md:text-4xl lg:text-5xl">+ 40 anos</p>
           </div>
 
           <div className="text-xl md:text-3xl">
