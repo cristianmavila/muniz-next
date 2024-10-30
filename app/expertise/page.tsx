@@ -11,12 +11,12 @@ const LayoutExpertise = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       <Header variant={"conceitos"} />
-      <div className="container mx-auto relative overflow-hidden mb-16 text-sm md:text-xl">
+      <div className="container mx-auto relative overflow-hidden mb-16 text-xl">
         <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">Expertise</h1>
         <div className="my-8 md:my-14">
           <SliderExpertise />
         </div>
-        <div className="grid gap-9 lg:max-w-[650px] w-10/12 md:w-3/4 mx-auto">
+        <div className="grid gap-9 lg:max-w-[650px] w-full md:w-3/4 mx-auto">
           <div className="grid gap-7">
             <p className="leading-8">
               Este portfólio está focado no protagonismo das marcas e reúne minha experiência na
