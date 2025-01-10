@@ -1,55 +1,105 @@
-import qs from "qs";
-import { getData } from "@/utils";
+// import qs from "qs";
+// import { getData } from "@/utils";
+
+import client from "@/libs/apollo-client";
+import { gql } from "@apollo/client";
+
 import ListIndice from "@/components/ListIndice";
 
 async function getIndice(params: { indice: string }) {
-  const data = await getData(
-    `/api/portfolios`,
-    qs.stringify({
-      populate: {
-        fields: ["name", "slug"],
-        thumbnail: {
-          fields: ["url", "width", "height", "name"],
-        },
-        categories: {
-          fields: ["name", "slug"],
-        },
-      },
-      filters: {
-        categories: {
-          slug: {
-            $eq: params.indice,
-          },
-        },
-      },
-      sort: "publishedAt:asc",
-      pagination: { limit: 35 },
-    })
-  );
+  // const data = await getData(
+  //   `/api/portfolios`,
+  //   qs.stringify({
+  //     populate: {
+  //       fields: ["name", "slug"],
+  //       thumbnail: {
+  //         fields: ["url", "width", "height", "name"],
+  //       },
+  //       categories: {
+  //         fields: ["name", "slug"],
+  //       },
+  //     },
+  //     filters: {
+  //       categories: {
+  //         slug: {
+  //           $eq: params.indice,
+  //         },
+  //       },
+  //     },
+  //     sort: "publishedAt:asc",
+  //     pagination: { limit: 35 },
+  //   })
+  // );
+
+  const { data } = await client.query({
+    query: gql`
+      query GetPostsByCategory {
+        posts(where: { categoryName: "${params.indice}", orderby: { field:IN, order: ASC } }) {
+          nodes {
+            id
+            title
+            slug
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+                mediaDetails {
+                  file
+                  height
+                  width
+                }
+              }
+            }
+            tags {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    fetchPolicy: "no-cache",
+  });
 
   return data;
 }
 
+const getCategoryName = (indice: string) => {
+  if (indice === "industria") {
+    return "Indústria";
+  } else if (indice === "instituicao-empresa") {
+    return "Instituição & Empresa";
+  } else {
+    return "Varejo & Produto";
+  }
+};
+
 const IndicePage = async ({ params }: { params: { indice: string } }) => {
   const items = await getIndice(params);
-  const { data } = items;
+  const { posts } = items;
 
-  const name = (data && data[0]?.categories?.data[0]?.name) || "Nenhum projeto encontrado";
+  const name = getCategoryName(params.indice) || "Nenhum projeto encontrado";
 
   // console.dir(data, { depth: null });
 
-  const mapIndices = data?.map(({ id, name, thumbnail, slug }: any) => ({
+  const mapIndices = posts.nodes?.map(({ id, title, featuredImage, slug }: any) => ({
     id: id,
-    name: name,
-    thumbnail: {
-      src: (thumbnail.url && `${thumbnail.url}`) || "",
-      width: thumbnail.width,
-      height: thumbnail.height,
-      alt: thumbnail.name,
-    },
+    name: title,
+    thumbnail:
+      featuredImage.node.sourceUrl !== undefined
+        ? {
+            src: `${featuredImage.node.sourceUrl}`,
+            width: featuredImage.node.mediaDetails.width | 0,
+            height: featuredImage.node.mediaDetails.height | 0,
+          }
+        : {},
     link: {
       href: `/portfolio/${slug}`,
-      children: name,
+      children: title,
     },
   }));
 

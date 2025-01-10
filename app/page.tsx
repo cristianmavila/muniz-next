@@ -1,53 +1,92 @@
-import qs from "qs";
-import { getData } from "@/utils";
+// import qs from "qs";
+// import { getData } from "@/utils";
+
+import client from "@/libs/apollo-client";
+import { gql } from "@apollo/client";
+
 import Header from "@/components/Header";
 import ListImages from "@/components/ListImages";
 
 async function getHome() {
-  const data = await getData(
-    `/api/homepage`,
-    qs.stringify({
-      populate: {
-        images: {
-          fields: ["image"],
-          populate: ["image"],
-        },
-        portfolios: {
-          fields: ["name", "slug", "thumb_home"],
-          populate: ["thumb_home"],
-        },
-      },
-    })
-  );
+  // const data = await getData(
+  //   `/api/homepage`,
+  //   qs.stringify({
+  //     populate: {
+  //       images: {
+  //         fields: ["image"],
+  //         populate: ["image"],
+  //       },
+  //       portfolios: {
+  //         fields: ["name", "slug", "thumb_home"],
+  //         populate: ["thumb_home"],
+  //       },
+  //     },
+  //   })
+  // );
+
+  const { data } = await client.query({
+    query: gql`
+      query GetPostsByCategory {
+        posts(where: { categoryName: "industria" }) {
+          nodes {
+            id
+            title
+            slug
+            content
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+                mediaDetails {
+                  file
+                  height
+                  width
+                }
+              }
+            }
+            tags {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  console.log(data.posts.nodes);
 
   return data;
 }
 
 export default async function Home() {
   const data = await getHome();
-  const { portfolios, images } = data;
+  const { posts } = data;
 
-  const mapSections = images?.map(({ image }: any) => ({
-    image: {
-      src: `${image.url}`,
-      width: image.width,
-      height: image.height,
-    },
-  }));
+  // const mapSections = images?.map(({ image }: any) => ({
+  //   image: {
+  //     src: `${image.url}`,
+  //     width: image.width,
+  //     height: image.height,
+  //   },
+  // }));
 
-  const mapPortfolio = portfolios?.data?.map(({ slug, name, thumb_home }: any) => ({
-    name: name,
+  const mapPortfolio = posts?.nodes?.map(({ slug, title, featuredImage }: any) => ({
+    name: title,
     image:
-      thumb_home.url !== undefined
+      featuredImage.node.sourceUrl !== undefined
         ? {
-            src: `${thumb_home.url}`,
-            width: thumb_home.width | 0,
-            height: thumb_home.height | 0,
+            src: `${featuredImage.node.sourceUrl}`,
+            width: featuredImage.node.mediaDetails.width | 0,
+            height: featuredImage.node.mediaDetails.height | 0,
           }
         : {},
     link: {
       href: `/portfolio/${slug}`,
-      children: name,
+      children: title,
     },
   }));
 
@@ -60,7 +99,7 @@ export default async function Home() {
     <div className="bg-black">
       <Header variant={"home"} />
       <div className="container relative overflow-hidden pb-11">
-        {mapSections && <ListImages items={mapSections} />}
+        {/* {mapSections && <ListImages items={mapSections} />} */}
         {mapPortfolio && <ListImages items={mapPortfolio} imageClassName="bg-gray-950" />}
       </div>
     </div>
