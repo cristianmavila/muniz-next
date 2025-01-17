@@ -1,23 +1,27 @@
-import { getData } from "@/utils";
-import qs from "qs";
+import client from "@/libs/apollo-client";
+import { gql } from "@apollo/client";
 
 async function getPortfolios() {
-  const data = await getData(
-    `/api/portfolios`,
-    qs.stringify({
-      populate: {
-        fields: ["name", "slug"],
-      },
-      sort: "publishedAt:asc",
-      pagination: { limit: 100 },
-    })
-  );
+  const { data } = await client.query({
+    query: gql`
+      query GetPostsByCategory($first: Int!) {
+        posts(first: $first, where: { orderby: { field: DATE, order: ASC } }) {
+          nodes {
+            title
+            slug
+          }
+        }
+      }
+    `,
+    fetchPolicy: "no-cache",
+    variables: { first: 300 },
+  });
 
-  return data;
+  return data.posts.nodes || [];
 }
 
 export default async function sitemap() {
-  const { data } = await getPortfolios();
+  const data = await getPortfolios();
 
   const pages = data?.map(({ slug }: any) => {
     // resources is an array containing objects like: {

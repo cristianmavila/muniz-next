@@ -1,40 +1,13 @@
-// import qs from "qs";
-// import { getData } from "@/utils";
-
 import client from "@/libs/apollo-client";
 import { gql } from "@apollo/client";
 
 import ListIndice from "@/components/ListIndice";
 
 async function getIndice(params: { indice: string }) {
-  // const data = await getData(
-  //   `/api/portfolios`,
-  //   qs.stringify({
-  //     populate: {
-  //       fields: ["name", "slug"],
-  //       thumbnail: {
-  //         fields: ["url", "width", "height", "name"],
-  //       },
-  //       categories: {
-  //         fields: ["name", "slug"],
-  //       },
-  //     },
-  //     filters: {
-  //       categories: {
-  //         slug: {
-  //           $eq: params.indice,
-  //         },
-  //       },
-  //     },
-  //     sort: "publishedAt:asc",
-  //     pagination: { limit: 35 },
-  //   })
-  // );
-
   const { data } = await client.query({
     query: gql`
-      query GetPostsByCategory {
-        posts(where: { categoryName: "${params.indice}", orderby: { field:IN, order: ASC } }) {
+      query GetPostsByCategory($first: Int!) {
+        posts(first: $first, where: { categoryName: "${params.indice}", orderby: { field:IN, order: ASC } }) {
           nodes {
             id
             title
@@ -63,6 +36,7 @@ async function getIndice(params: { indice: string }) {
       }
     `,
     fetchPolicy: "no-cache",
+    variables: { first: 35 },
   });
 
   return data;
