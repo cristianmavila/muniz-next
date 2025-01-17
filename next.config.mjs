@@ -26,6 +26,10 @@ const nextConfig = {
         hostname: "seahorse-app-os68v.ondigitalocean.app",
       },
       {
+        protocol: "http",
+        hostname: "jorgemuniz.web10f68.kinghost.net",
+      },
+      {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
