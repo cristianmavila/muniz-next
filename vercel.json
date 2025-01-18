@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/blog/:path*",
-      "destination": "http://jorgemuniz.web10f68.kinghost.net/:path*"
+      "destination": "https://blog.jorgemuniz.com.br/:path*"
     }
   ]
 }
