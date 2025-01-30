@@ -31,7 +31,7 @@ export default async function sitemap() {
     //   segments: ["blog", "some-category", "a-blog-post"],
     // }
     return {
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/portfolio/${slug}`,
       lastModified: new Date(),
     };
   });

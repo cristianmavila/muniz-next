@@ -28,6 +28,37 @@ async function getPortfolio(params: { slug: string }) {
   return data.post;
 }
 
+export async function generateStaticParams() {
+  const { data } = await client.query({
+    query: gql`
+      query GetPosts($first: Int!) {
+        posts(first: $first) {
+          nodes {
+            id
+            title
+            slug
+          }
+        }
+      }
+    `,
+    fetchPolicy: "no-cache",
+    variables: { first: 250 },
+  });
+
+  return data?.posts?.nodes?.map((project: { slug: any }) => ({
+    slug: String(project.slug),
+  }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = await getPortfolio({ slug: slug });
+
+  return {
+    title: `Muniz Branding - ${project.title}`,
+  };
+}
+
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
   // console.log(project);
