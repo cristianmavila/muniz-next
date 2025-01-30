@@ -1,47 +1,13 @@
 import client from "@/libs/apollo-client";
-import { gql } from "@apollo/client";
-
 import Header from "@/components/Header";
 import ListImages from "@/components/ListImages";
+import { GET_POSTS_HOME } from "@/queries";
 
 async function getHome() {
   const { data } = await client.query({
-    query: gql`
-      query GetPostsByCategory($first: Int!) {
-        posts(
-          first: $first
-          where: { categoryName: "home", orderby: { field: MENU_ORDER, order: ASC } }
-        ) {
-          nodes {
-            id
-            title
-            slug
-            content
-            homeThumbnail
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-                mediaDetails {
-                  file
-                  height
-                  width
-                }
-              }
-            }
-            tags {
-              edges {
-                node {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
+    query: GET_POSTS_HOME,
     fetchPolicy: "no-cache",
-    variables: { first: 50 },
+    variables: { first: 50, category: "home" },
   });
 
   return data;

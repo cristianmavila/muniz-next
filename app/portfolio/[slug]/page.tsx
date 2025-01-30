@@ -8,20 +8,12 @@ import RichText from "@/components/RichText";
 import client from "@/libs/apollo-client";
 import { gql } from "@apollo/client";
 
+import { GET_POST_BY_SLUG } from "@/queries";
+
 async function getPortfolio(params: { slug: string }) {
   const { data } = await client.query({
-    query: gql`
-      query GetPostBySlug {
-        post(id: "${params.slug}", idType: SLUG) {
-          id
-          title
-          slug
-          content
-          previousPostSlug
-          nextPostSlug
-        }
-      }
-    `,
+    query: GET_POST_BY_SLUG,
+    variables: { slug: params.slug },
     fetchPolicy: "no-cache",
   });
 
@@ -54,8 +46,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const project = await getPortfolio({ slug: slug });
 
+  const plainTextContent = project.content
+    .replace(/<[^>]+>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
   return {
     title: `Muniz Branding - ${project.title}`,
+    description: plainTextContent,
   };
 }
 

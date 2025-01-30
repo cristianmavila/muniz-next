@@ -1,42 +1,12 @@
 import client from "@/libs/apollo-client";
-import { gql } from "@apollo/client";
-
+import { GET_POSTS_BY_CATEGORY } from "@/queries";
 import ListIndice from "@/components/ListIndice";
 
 async function getIndice(params: { indice: string }) {
   const { data } = await client.query({
-    query: gql`
-      query GetPostsByCategory($first: Int!) {
-        posts(first: $first, where: { categoryName: "${params.indice}", orderby: { field:IN, order: ASC } }) {
-          nodes {
-            id
-            title
-            slug
-            content
-            featuredImage {
-              node {
-                altText
-                sourceUrl
-                mediaDetails {
-                  file
-                  height
-                  width
-                }
-              }
-            }
-            tags {
-              edges {
-                node {
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
+    query: GET_POSTS_BY_CATEGORY,
     fetchPolicy: "no-cache",
-    variables: { first: 35 },
+    variables: { first: 35, category: params.indice },
   });
 
   return data;
