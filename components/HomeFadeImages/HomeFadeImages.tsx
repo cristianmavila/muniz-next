@@ -11,12 +11,12 @@ import "swiper/css/effect-fade";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 // import { imageKitLoader } from "@/libs/imageKit";
-import { useTabletOrMobile } from "@/hooks/useTabletOrMobile";
+import { useTablet } from "@/hooks/useTabletOrMobile";
 import { useEffect, useState } from "react";
 
 const HomeFadeImages = () => {
   const [mounted, setMounted] = useState(false);
-  const itsMobile = useTabletOrMobile();
+  const itsMobile = useTablet();
 
   // Doing this to avoid hydration warnings.
   useEffect(() => setMounted(true), []);

@@ -8,7 +8,7 @@ import Logo from "@/components/Logo";
 import MenuIcon from "@/components/MenuIcon";
 import HomeFadeImages from "@/components/HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
-import { useTabletOrMobile } from "@/hooks/useTabletOrMobile";
+import { useTablet } from "@/hooks/useTabletOrMobile";
 import { Sheet, SheetContent, SheetTitle } from "@/components/core/Sheet";
 
 const DesktopMenuVariants = cva("container mx-auto flex justify-between items-center w-full", {
@@ -39,7 +39,7 @@ interface DesktopMenuProps extends VariantProps<typeof DesktopMenuVariants> {
 }
 
 const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopMenuProps) => {
-  const itsMobile = useTabletOrMobile();
+  const itsMobile = useTablet();
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   const [mounted, setMounted] = useState(false);
@@ -56,11 +56,12 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               <Logo
                 {...{
                   variant: logo === "horizontal" ? "horizontal" : "vertical",
+                  className: "w-[65px]",
                 }}
               />
             </Link>
             <button onClick={() => setToggleMenu(true)} className={cn(toggleMenu && "opacity-0")}>
-              <MenuIcon open={toggleMenu} className="size-16 -mr-3" />
+              <MenuIcon open={toggleMenu} className="size-10 mr-1" />
             </button>
           </div>
           <SheetContent
@@ -75,10 +76,11 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               )}
               onClick={() => setToggleMenu(false)}
             >
-              <div className="absolute top-0 left-0 py-5 px-4">
+              <div className="absolute top-0 left-0 px-4">
                 <Logo
                   {...{
                     variant: logo === "horizontal" ? "horizontal" : "vertical",
+                    className: "w-[65px]",
                   }}
                 />
               </div>
@@ -86,7 +88,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
                 className="absolute top-0 right-0 size-24"
                 onClick={() => setToggleMenu(false)}
               >
-                <MenuIcon open={toggleMenu} className="size-24 -mr-3" />
+                <MenuIcon open={toggleMenu} className="size-24 -mr-3" color="#FFFFFF" />
               </button>
 
               {menu && <Menu menu={menu} orientation="vertical" variant={"home"} />}
@@ -105,6 +107,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
           <Logo
             {...{
               variant: logo === "horizontal" ? "horizontal" : "vertical",
+              className: "w-[65px]",
             }}
           />
         </Link>

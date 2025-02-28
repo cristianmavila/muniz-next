@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
+import { cn } from "@/libs/tailwind";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { cva } from "class-variance-authority";
-import SliderExpertise from "@/components/SliderExpertise";
-import { cn } from "@/libs/tailwind";
 
 const LayoutExpertise = () => {
   // const grayStyle = cva("text-titleIndice");
@@ -14,7 +14,17 @@ const LayoutExpertise = () => {
       <div className="container mx-auto relative overflow-hidden mb-16 text-xl">
         <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">Expertise</h1>
         <div className="my-8 md:my-14">
-          <SliderExpertise />
+          {/* <SliderExpertise /> */}
+          <div className="opacity-0 animate-fadeIn">
+            <img
+              width={2500}
+              height={1875}
+              alt="Expertise image"
+              loading="lazy"
+              className="w-full mt-8 lg:mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden"
+              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/02/EXPERTISE-REDUX-92.jpg"
+            />
+          </div>
         </div>
         <div className="grid gap-9 lg:max-w-[650px] w-full md:w-3/4 mx-auto">
           <div className="grid gap-7">

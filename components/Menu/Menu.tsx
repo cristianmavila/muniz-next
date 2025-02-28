@@ -9,6 +9,7 @@ import {
   navigationMenuTriggerStyle,
 } from "../core/NavigationMenu";
 import { LinkProps } from "@/components/ProjectItem";
+import { usePathname } from "next/navigation";
 
 const MenuVariants = cva("", {
   variants: {
@@ -30,6 +31,7 @@ export interface MenuProps extends VariantProps<typeof MenuVariants> {
 }
 
 const Menu = ({ menu, variant = "horizontal", orientation }: MenuProps) => {
+  const pathName = usePathname();
   return (
     <NavigationMenu orientation={orientation} className={cn(MenuVariants({ variant }))}>
       <NavigationMenuList className="">
@@ -39,9 +41,9 @@ const Menu = ({ menu, variant = "horizontal", orientation }: MenuProps) => {
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "cool-link-effect flex flex-col",
-                  // "font-normal px-2 cool-link-effect flex flex-col",
-                  variant === "horizontal" ? "uppercase font-normal text-sm" : ""
+                  "font-medium uppercase tracking-widest px-3 cool-link-effect flex flex-col text-sm",
+                  pathName === link.href && "text-brand"
+                  // "cool-link-effect flex flex-col",
                 )}
               >
                 {link.children}

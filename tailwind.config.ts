@@ -33,13 +33,13 @@ const config: Config = {
         },
       },
       animation: {
-        fadeIn: "fadeIn 3s ease-in-out",
+        fadeIn: "fadeIn 3s ease-in-out forwards",
         fade: "fadePulse 4s infinite;",
       },
       keyframes: (theme) => ({
         fadeIn: {
-          "0%": { opacity: "0%" },
-          "100%": { opacity: "100%" },
+          from : { opacity: "0%" },
+          to: { opacity: "100%" },
         },
       }),
     },

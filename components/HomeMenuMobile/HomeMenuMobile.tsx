@@ -8,39 +8,52 @@ import Menu from "@/components/Menu";
 import MenuIcon from "@/components/MenuIcon";
 import ChevronDown from "@/components/ChevronDown";
 import { LinkProps } from "@/components/ProjectItem";
+import { useTablet } from "@/hooks/useTabletOrMobile";
 
 // shadcn components
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/core/Collapsible";
+import { cn } from "@/libs/tailwind";
 
 interface HomeMenuProps {
   menu?: LinkProps[];
 }
 
-const HomeMenu = ({ menu }: HomeMenuProps) => {
+const HomeMenuMobile = ({ menu }: HomeMenuProps) => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const itsMobile = useTablet();
   return (
     <>
       {/* Home menu */}
       <Collapsible
         open={toggleMenu}
         onOpenChange={setToggleMenu}
-        className="flex flex-col justify-center items-center gap-8"
+        className={cn(
+          "flex flex-col justify-center items-start gap-4",
+          !toggleMenu && "gap-14 items-center"
+        )}
       >
-        <CollapsibleTrigger>
-          <MenuIcon className="w-[90px] md:w-[220px] xl:w-[90px]" open={toggleMenu} />
-        </CollapsibleTrigger>
+        <div className={cn("w-[70px] flex justify-center", !toggleMenu && "h-[110px]")}>
+          {itsMobile && (
+            <CollapsibleTrigger>
+              <MenuIcon
+                className={cn("w-[65px] h-[50px]", !toggleMenu && "w-[40px] h-[50px]")}
+                open={toggleMenu}
+              />
+            </CollapsibleTrigger>
+          )}
+        </div>
         <Link href="/">
           <Logo
             {...{
-              variant: "horizontal",
+              variant: toggleMenu && itsMobile ? "vertical" : "horizontal",
               color: "#FFF",
-              className: "w-full w-[320px] h-[41px] md:w-[629px] md:h-[43px]",
+              className: !toggleMenu ? "w-full max-w-[250px]" : "w-[75px]",
               width: 629,
               height: 43,
             }}
           />
         </Link>
-        <ChevronDown className="w-[100px] md:w-48 xl:w-[100px]" />
+        {!toggleMenu && <ChevronDown className="w-[130px]" />}
         <CollapsibleContent className="w-full">
           {menu && <Menu menu={menu} variant={"home"} orientation="vertical" />}
         </CollapsibleContent>
@@ -49,4 +62,4 @@ const HomeMenu = ({ menu }: HomeMenuProps) => {
   );
 };
 
-export default HomeMenu;
+export default HomeMenuMobile;

@@ -16,7 +16,7 @@ const LayoutExpertise = () => {
         <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">Insights</h1>
         <div className="my-8 md:my-14">
           {/* Heading images */}
-          <img
+          {/* <img
             width={2500}
             height={1875}
             alt="Insights luz"
@@ -32,6 +32,17 @@ const LayoutExpertise = () => {
               loading="lazy"
               className="w-full mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden lg:px-36 mx-auto hover:scale-[112%] duration-500 ease-in-out"
               src="https://res.cloudinary.com/df2y7qdjr/image/upload/v1729603059/Title-INSIGHTS_ygd2xy_sogvn4.png"
+            />
+          </div> */}
+
+          <div className="opacity-0 animate-fadeIn">
+            <img
+              width={2500}
+              height={1875}
+              alt="Insights image"
+              loading="lazy"
+              className="w-full mt-8 lg:mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden"
+              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/02/INSIGHTS-Redux-92.jpg"
             />
           </div>
         </div>
