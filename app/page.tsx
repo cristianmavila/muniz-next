@@ -37,7 +37,7 @@ export default async function Home() {
     <div className="bg-black">
       <Header variant={"home"} />
       <div className="container mx-auto relative overflow-hidden mb-16 text-xl">
-        <div className="grid gap-9 lg:max-w-[670px] w-full md:w-3/4 mx-auto text-white my-8 md:my-24 text-xl md:text-3xl">
+        <div className="grid gap-9 lg:max-w-[670px] w-full md:w-3/4 mx-auto text-white my-8 md:my-32 text-xl md:text-3xl">
           <p className="leading-normal">
             Estratégias de marca eficazes criam conexões emocionais profundas, orientam os objetivos
             empresariais, aumentam a visibilidade e expandem mercados.
