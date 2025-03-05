@@ -36,7 +36,17 @@ export default async function Home() {
   return (
     <div className="bg-black">
       <Header variant={"home"} />
-      <div className="container relative overflow-hidden pb-11">
+      <div className="container mx-auto relative overflow-hidden mb-16 text-xl">
+        <div className="grid gap-9 lg:max-w-[670px] w-full md:w-3/4 mx-auto text-white my-8 md:my-24 text-xl md:text-3xl">
+          <p className="leading-normal">
+            Estratégias de marca eficazes criam conexões emocionais profundas, orientam os objetivos
+            empresariais, aumentam a visibilidade e expandem mercados.
+          </p>
+          <p className="leading-normal">
+            Com uma abordagem integrada, elas levam ao sucesso sustentável e transformam a maneira
+            como as pessoas interagem com a marca.
+          </p>
+        </div>
         {mapPortfolio && <ListImages items={mapPortfolio} imageClassName="bg-gray-950" />}
       </div>
     </div>

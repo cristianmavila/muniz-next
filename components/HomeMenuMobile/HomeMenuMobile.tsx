@@ -53,7 +53,7 @@ const HomeMenuMobile = ({ menu }: HomeMenuProps) => {
             }}
           />
         </Link>
-        {!toggleMenu && <ChevronDown className="w-[130px]" />}
+        {!toggleMenu && <ChevronDown className="w-[110px]" />}
         <CollapsibleContent className="w-full">
           {menu && <Menu menu={menu} variant={"home"} orientation="vertical" />}
         </CollapsibleContent>

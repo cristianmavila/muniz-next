@@ -35,14 +35,14 @@ const LayoutExpertise = () => {
             />
           </div> */}
 
-          <div className="opacity-0 animate-fadeIn">
+          <div className="opacity-0 animate-fade">
             <img
               width={2500}
               height={1875}
               alt="Insights image"
               loading="lazy"
               className="w-full mt-8 lg:mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden"
-              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/02/INSIGHTS-Redux-92.jpg"
+              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/03/02-INSIGHTS-Fim-Redux-92.jpg"
             />
           </div>
         </div>

@@ -48,7 +48,7 @@ const ListImages = ({
                 width={image.width}
                 height={image.height}
                 className={cn(
-                  "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] indent-[100%] whitespace-nowrap overflow-hidden",
+                  "w-full duration-1000 ease-in-out group-hover:scale-[135%] indent-[100%] whitespace-nowrap overflow-hidden",
                   imageClassName
                 )}
                 loading="lazy"

@@ -61,35 +61,53 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
               />
             </Link>
             <button onClick={() => setToggleMenu(true)} className={cn(toggleMenu && "opacity-0")}>
-              <MenuIcon open={toggleMenu} className="size-10 mr-1" />
+              <MenuIcon className={cn("w-[40px] h-[50px]")} open={toggleMenu} />
             </button>
           </div>
           <SheetContent
             side="left"
-            className="flex h-screen w-full !max-w-none flex-col justify-between overflow-y-auto px-8 py-12"
+            className="flex h-screen w-full !max-w-none flex-col justify-between items-center overflow-y-auto px-8 py-12"
           >
             <SheetTitle className="sr-only">Mobile menu</SheetTitle>
             <div
               className={cn(
-                "relative opacity-0 z-20 flex flex-col items-center justify-center h-full transition-all duration-1000 delay-500 animate-fadeIn",
-                toggleMenu && "opacity-100"
+                "relative opacity-0 z-20 flex flex-col items-center justify-center h-full transition-all duration-500 delay-500 animate-fadeIn",
+                toggleMenu && "opacity-100 flex flex-col justify-center items-start gap-4"
               )}
               onClick={() => setToggleMenu(false)}
             >
-              <div className="absolute top-0 left-0 px-4">
+              <div className={cn("w-[70px] flex justify-center")}>
+                <MenuIcon className={cn("w-[65px] h-[50px]")} open={toggleMenu} color="#FFF" />
+              </div>
+              <Link href="/">
+                <Logo
+                  {...{
+                    variant: "vertical",
+                    color: "#FFF",
+                    className: "w-[75px]",
+                    width: 629,
+                    height: 43,
+                  }}
+                />
+              </Link>
+              {/* <div className="absolute top-0 left-0 px-4">
                 <Logo
                   {...{
                     variant: logo === "horizontal" ? "horizontal" : "vertical",
                     className: "w-[65px]",
                   }}
                 />
-              </div>
-              <button
+              </div> */}
+              {/* <button
                 className="absolute top-0 right-0 size-24"
                 onClick={() => setToggleMenu(false)}
               >
-                <MenuIcon open={toggleMenu} className="size-24 -mr-3" color="#FFFFFF" />
-              </button>
+                <MenuIcon
+                  className={cn("w-[65px] h-[50px] -mr-3")}
+                  open={toggleMenu}
+                  color="#FFFFFF"
+                />
+              </button> */}
 
               {menu && <Menu menu={menu} orientation="vertical" variant={"home"} />}
             </div>

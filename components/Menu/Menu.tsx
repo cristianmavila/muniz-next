@@ -28,12 +28,13 @@ const MenuVariants = cva("", {
 export interface MenuProps extends VariantProps<typeof MenuVariants> {
   menu: LinkProps[];
   orientation?: "horizontal" | "vertical";
+  className?: string;
 }
 
-const Menu = ({ menu, variant = "horizontal", orientation }: MenuProps) => {
+const Menu = ({ menu, variant = "horizontal", orientation, className }: MenuProps) => {
   const pathName = usePathname();
   return (
-    <NavigationMenu orientation={orientation} className={cn(MenuVariants({ variant }))}>
+    <NavigationMenu orientation={orientation} className={cn(MenuVariants({ variant }), className)}>
       <NavigationMenuList className="">
         {menu?.map((link, index) => (
           <NavigationMenuItem key={index}>

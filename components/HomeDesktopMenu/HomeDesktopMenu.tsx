@@ -12,21 +12,29 @@ interface HomeMenuProps {
 
 const HomeDesktopMenu = ({ menu }: HomeMenuProps) => {
   return (
-    <div className="h-screen w-full py-6">
+    <div className="h-screen w-full">
       {/* Home menu */}
-      {menu && <Menu menu={menu} variant={"horizontal"} orientation="horizontal" />}
-      <div className={cn("flex flex-col justify-center items-center gap-28 h-full")}>
-        <Logo
-          {...{
-            variant: "horizontal",
-            color: "#FFF",
-            className: "w-full max-w-[340px]",
-            width: 629,
-            height: 43,
-          }}
+      {menu && (
+        <Menu
+          menu={menu}
+          variant={"horizontal"}
+          orientation="horizontal"
+          className="min-h-[100px] lg:flex"
         />
-
-        <ChevronDown className="w-[130px]" />
+      )}
+      <div className={cn("flex flex-col justify-center items-center h-[calc(100%-100px)]")}>
+        <div className="flex flex-col justify-center items-center relative">
+          <Logo
+            {...{
+              variant: "horizontal",
+              color: "#FFF",
+              className: "w-full max-w-[340px]",
+              width: 629,
+              height: 43,
+            }}
+          />
+          <ChevronDown className="w-[110px] absolute left-1/2 -translate-x-1/2 -bottom-full" />
+        </div>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
             alt={thumbnail.alt}
             width={thumbnail.width}
             height={thumbnail.height}
-            className="w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] bg-slate-100 indent-[100%] whitespace-nowrap overflow-hidden"
+            className="w-full duration-1000 ease-in-out group-hover:scale-[135%] bg-slate-100 indent-[100%] whitespace-nowrap overflow-hidden"
             loading="lazy"
           />
         )}

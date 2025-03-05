@@ -151,7 +151,7 @@ const FormContact = () => {
         />
         <button
           type="submit"
-          className="bg-black text-white tracking-wider py-2 px-7 font-light text-lg !mt-14"
+          className="bg-brand text-white tracking-wider py-2 px-7 font-light text-lg !mt-14"
         >
           Enviar
         </button>

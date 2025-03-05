@@ -47,7 +47,7 @@ export const options: HTMLReactParserOptions = {
               width={Number(width)}
               height={Number(height)}
               className={cn(
-                "w-full duration-500 ease-in-out hover:scale-[112%] group-hover:scale-[112%] indent-[100%] whitespace-nowrap overflow-hidden"
+                "w-full duration-1000 ease-in-out group-hover:scale-[135%] indent-[100%] whitespace-nowrap overflow-hidden"
               )}
               loading="lazy"
             />

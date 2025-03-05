@@ -15,19 +15,20 @@ const LayoutExpertise = () => {
         <h1 className="text-2xl md:text-5xl font-medium mt-10 mb-5 sr-only">Expertise</h1>
         <div className="my-8 md:my-14">
           {/* <SliderExpertise /> */}
-          <div className="opacity-0 animate-fadeIn">
+          <div className="opacity-0 animate-fade">
             <img
               width={2500}
               height={1875}
               alt="Expertise image"
               loading="lazy"
               className="w-full mt-8 lg:mt-14 relative indent-[100%] whitespace-nowrap overflow-hidden"
-              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/02/EXPERTISE-REDUX-92.jpg"
+              src="https://blog.jorgemuniz.com.br/wp-content/uploads/2025/03/01-EXPERTISE-Fim-Redux-92.jpg"
             />
           </div>
         </div>
         <div className="grid gap-9 lg:max-w-[650px] w-full md:w-3/4 mx-auto">
-          <div className="grid gap-7">
+          {/* <div className="grid gap-7">
+            
             <p className="leading-8">
               Este portfólio está focado no protagonismo das marcas e reúne minha experiência na
               criação de identidades visuais atemporais.
@@ -41,10 +42,10 @@ const LayoutExpertise = () => {
               Esses princípios são fundamentais para moldar ações eficazes que garantem o sucesso
               das marcas em um ambiente desafiador e em constante evolução.
             </p>
-          </div>
+          </div> */}
 
           <div>
-            <h3 className={cn(titleStyle(), "text-2xl md:text-5xl !leading-normal")}>
+            <h3 className={cn(titleStyle(), "text-2xl md:text-6xl !leading-normal")}>
               Branding é conhecimento, Branding é experiência
             </h3>
           </div>
@@ -52,6 +53,7 @@ const LayoutExpertise = () => {
           <div className="grid gap-4">
             <p className="text-2xl md:text-4xl lg:text-5xl">+ 1200 Marcas</p>
             <p className="text-2xl md:text-4xl lg:text-5xl">+ 1700 Identidades visuais</p>
+            <p className="text-2xl md:text-4xl lg:text-5xl">+ 800 Empresas</p>
             <p className="text-2xl md:text-4xl lg:text-5xl">+ 40 Anos</p>
           </div>
 
