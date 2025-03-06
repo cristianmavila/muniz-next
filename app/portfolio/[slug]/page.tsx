@@ -10,7 +10,7 @@ import { gql } from "@apollo/client";
 
 import { GET_POST_BY_SLUG } from "@/queries";
 
-async function getPortfolio(params: { slug: string }) {
+export async function getPortfolio(params: { slug: string }) {
   const { data } = await client.query({
     query: GET_POST_BY_SLUG,
     variables: { slug: params.slug },
@@ -60,8 +60,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
   // console.log(project);
-  const categoryProject =
-    project?.categories?.nodes.find((item: { name: string }) => item.name !== "home") || null;
+  // const categoryProject =
+  //   project?.categories?.nodes.find((item: { name: string }) => item.name !== "home") || null;
+
+  // console.log(project.categories.edges);
 
   const nextProject = project?.nextPostSlug || null;
   const prevProject = project?.previousPostSlug || null;

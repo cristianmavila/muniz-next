@@ -23,34 +23,34 @@ const HeaderVariants = cva("flex justify-between", {
 
 interface HeaderProps extends VariantProps<typeof HeaderVariants> {}
 
-const menu = [
-  {
-    href: "/portfolio/i/industria",
-    children: "Indústria",
-  },
-  {
-    href: "/portfolio/i/instituicao-empresa",
-    children: "Instituição & Empresa",
-  },
-  {
-    href: "/portfolio/i/varejo-produto",
-    children: "Varejo & Produto",
-  },
-  {
-    href: "/expertise",
-    children: "Expertise",
-  },
-  {
-    href: "/insights",
-    children: "Insights",
-  },
-  {
-    href: "/contato",
-    children: "Contato",
-  },
-];
-
 const Header = ({ variant }: HeaderProps) => {
+  const menu = [
+    {
+      href: "/portfolio/i/industria",
+      children: "Indústria",
+    },
+    {
+      href: "/portfolio/i/instituicao-empresa",
+      children: "Instituição & Empresa",
+    },
+    {
+      href: "/portfolio/i/varejo-produto",
+      children: "Varejo & Produto",
+    },
+    {
+      href: "/expertise",
+      children: "Expertise",
+    },
+    {
+      href: "/insights",
+      children: "Insights",
+    },
+    {
+      href: "/contato",
+      children: "Contato",
+    },
+  ];
+
   const itsMobile = useTablet();
   const isHome = !!(variant === "home");
   return (
