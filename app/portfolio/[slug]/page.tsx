@@ -10,7 +10,7 @@ import { gql } from "@apollo/client";
 
 import { GET_POST_BY_SLUG } from "@/queries";
 
-export async function getPortfolio(params: { slug: string }) {
+async function getPortfolio(params: { slug: string }) {
   const { data } = await client.query({
     query: GET_POST_BY_SLUG,
     variables: { slug: params.slug },
