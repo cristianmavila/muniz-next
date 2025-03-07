@@ -13,7 +13,7 @@ const HeaderVariants = cva("flex justify-between", {
     variant: {
       default: "",
       home: "h-svh items-center p-0 min-h-[600px] text-white flex-col justify-center gap-8 relative overflow-hidden",
-      conceitos: "",
+      conceitos: "min-h-[100px]",
     },
   },
   defaultVariants: {

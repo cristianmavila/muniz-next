@@ -72,7 +72,7 @@ const Menu = ({ menu, variant = "horizontal", orientation, className }: MenuProp
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "font-medium uppercase tracking-widest px-3 cool-link-effect flex flex-col text-sm",
+                  "font-medium uppercase tracking-widest px-3 cool-link-effect flex flex-col max-lg:text-base text-sm",
                   (pathName === link.href || link.href === activeRoute) && "text-brand"
                   // "cool-link-effect flex flex-col",
                 )}

@@ -58,7 +58,12 @@ export const options: HTMLReactParserOptions = {
       if (domNode.name === "ul") {
         const { class: className } = domNode.attribs;
         return (
-          <ul className={cn("text-sm md:text-lg text-titleIndice flex flex-wrap gap-1", className)}>
+          <ul
+            className={cn(
+              "text-sm md:text-lg text-titleIndice flex flex-wrap gap-x-1 gap-y-0 [&_li]:inline [&_li]:whitespace-break-spaces",
+              className
+            )}
+          >
             {domToReact(domNode.children, options)}
           </ul>
         );
