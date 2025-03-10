@@ -27,9 +27,9 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
-    to: process.env.MY_EMAIL,
     // to: process.env.MY_EMAIL,
-    // cc: email, (uncomment this line if you want to send a copy to the sender)
+    to: "muniz@jorgemuniz.com.br",
+    cc: email,
     subject: `Site Muniz Branding - (${name}) ${email} - ${subject}`,
     text: `${phone} - ${message}`,
   };
