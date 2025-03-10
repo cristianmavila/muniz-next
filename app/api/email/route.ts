@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     from: process.env.MY_EMAIL,
     // to: process.env.MY_EMAIL,
     to: "muniz@jorgemuniz.com.br",
-    cc: email,
+    // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Site Muniz Branding - (${name}) ${email} - ${subject}`,
     text: `${phone} - ${message}`,
   };
