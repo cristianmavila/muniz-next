@@ -58,15 +58,20 @@ export const options: HTMLReactParserOptions = {
       if (domNode.name === "ul") {
         const { class: className } = domNode.attribs;
         return (
-          <ul
+          <div
             className={cn(
-              "text-sm md:text-lg text-titleIndice flex flex-wrap gap-x-1 gap-y-0 [&_li]:inline [&_li]:whitespace-break-spaces",
+              "text-sm md:text-lg text-titleIndice [&_span]:whitespace-break-spaces",
               className
             )}
           >
             {domToReact(domNode.children, options)}
-          </ul>
+          </div>
         );
+      }
+
+      if (domNode.name === "li") {
+        const { class: className } = domNode.attribs;
+        return <span className={cn("", className)}>{domToReact(domNode.children, options)}</span>;
       }
 
       if (domNode.name === "p") {

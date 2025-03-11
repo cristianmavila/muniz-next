@@ -1,14 +1,11 @@
-import Link from "next/link";
-
 import { Fragment } from "react";
-
-import ChevronLeft from "@/components/ChevronLeft";
 import RichText from "@/components/RichText";
 
 import client from "@/libs/apollo-client";
 import { gql } from "@apollo/client";
 
 import { GET_POST_BY_SLUG } from "@/queries";
+import NavigationProject from "@/components/NavigationProject";
 
 async function getPortfolio(params: { slug: string }) {
   const { data } = await client.query({
@@ -59,18 +56,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
   const project = await getPortfolio(params);
-  // console.log(project);
-  // const categoryProject =
-  //   project?.categories?.nodes.find((item: { name: string }) => item.name !== "home") || null;
-
-  // console.log(project.categories.edges);
-
   const nextProject = project?.nextPostSlug || null;
   const prevProject = project?.previousPostSlug || null;
-
   const name = project?.title || "";
   const description = project?.content || "";
-
   const tags: string[] = project?.tags?.edges?.map((tag: any) => tag?.node?.name) || [];
 
   return (
@@ -97,26 +86,13 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
 
       {/* { sections && <ListImages items={sections} />} */}
 
-      {(prevProject || nextProject) && (
-        <div className="flex justify-between my-12 relative min-h-[30px]">
-          {prevProject && (
-            <Link
-              href={`/portfolio/${prevProject}`}
-              className="flex gap-4 items-center text-[15px] text-titleIndice absolute left-0 top-0"
-            >
-              <ChevronLeft className="w-[17px] h-[31px]" /> Anterior
-            </Link>
-          )}
-          {nextProject && (
-            <Link
-              href={`/portfolio/${nextProject}`}
-              className="flex gap-4 items-center text-[15px] text-titleIndice absolute top-0 right-0"
-            >
-              Próximo <ChevronLeft className="w-[17px] h-[31px] rotate-180" />
-            </Link>
-          )}
-        </div>
-      )}
+      <NavigationProject
+        {...{
+          nextProject,
+          prevProject,
+          href: `/portfolio/${params.slug}`,
+        }}
+      />
     </div>
   );
 };

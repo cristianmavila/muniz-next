@@ -24,7 +24,7 @@ const HeaderVariants = cva("flex justify-between", {
 interface HeaderProps extends VariantProps<typeof HeaderVariants> {}
 
 const Header = ({ variant }: HeaderProps) => {
-  const menu = [
+  let menu = [
     {
       href: "/portfolio/i/industria",
       children: "Indústria",

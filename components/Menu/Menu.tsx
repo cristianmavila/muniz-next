@@ -10,9 +10,7 @@ import {
 } from "../core/NavigationMenu";
 import { LinkProps } from "@/components/ProjectItem";
 import { usePathname } from "next/navigation";
-import client from "@/libs/apollo-client";
-import { GET_POST_BY_SLUG } from "@/queries";
-import { useCallback, useEffect, useState } from "react";
+import { menuStore } from "@/stores/menu";
 
 const MenuVariants = cva("", {
   variants: {
@@ -36,32 +34,8 @@ export interface MenuProps extends VariantProps<typeof MenuVariants> {
 
 const Menu = ({ menu, variant = "horizontal", orientation, className }: MenuProps) => {
   const pathName = usePathname();
-  const [activeRoute, setActiveRoute] = useState("");
-
-  const activeSlug = useCallback(async (routePath: string) => {
-    if (menu.filter((item) => item.href === routePath).length === 0 && routePath !== "/") {
-      const projectSlug = routePath?.split("/")[2];
-      const { data } = await client.query({
-        query: GET_POST_BY_SLUG,
-        variables: { slug: projectSlug },
-        fetchPolicy: "no-cache",
-      });
-      const categoryNoHome = data?.post?.categories?.edges.filter(
-        (cat: { node: { name: string } }) => cat.node.name !== "home"
-      );
-      const categoryName = categoryNoHome[0].node.name;
-      if (categoryName) return `/portfolio/i/${categoryName}`;
-    }
-    return ``;
-  }, []);
-
-  useEffect(() => {
-    const fetchMenuSlug = async () => {
-      const active = await activeSlug(pathName);
-      setActiveRoute(active);
-    };
-    fetchMenuSlug();
-  }, [pathName]);
+  const activeRoute = menuStore((state) => state.active);
+  const setActiveMenu = menuStore((state) => state.setActiveMenu);
 
   return (
     <NavigationMenu orientation={orientation} className={cn(MenuVariants({ variant }), className)}>
@@ -70,6 +44,9 @@ const Menu = ({ menu, variant = "horizontal", orientation, className }: MenuProp
           <NavigationMenuItem key={index}>
             <Link href={link.href} legacyBehavior passHref>
               <NavigationMenuLink
+                onClick={() => {
+                  setActiveMenu(link.href);
+                }}
                 className={cn(
                   navigationMenuTriggerStyle(),
                   "font-medium uppercase tracking-widest px-3 cool-link-effect flex flex-col max-lg:text-base text-sm",
