@@ -47,7 +47,7 @@ const HomeMenuMobile = ({ menu }: HomeMenuProps) => {
             {...{
               variant: toggleMenu && itsMobile ? "vertical" : "horizontal",
               color: "#FFF",
-              className: !toggleMenu ? "w-full max-w-[250px]" : "w-[75px]",
+              className: !toggleMenu ? "w-full max-w-[220px]" : "w-[75px]",
               width: 629,
               height: 43,
             }}

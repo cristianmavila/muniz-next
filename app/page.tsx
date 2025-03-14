@@ -38,14 +38,32 @@ export default async function Home() {
       <Header variant={"home"} />
       <div className="container mx-auto relative overflow-hidden pb-16 text-xl">
         <div className="grid gap-9 lg:max-w-[670px] w-full md:w-3/4 mx-auto text-white my-20 md:my-32 text-xl md:text-3xl">
-          <p className="leading-normal">
-            Estratégias de marca eficazes criam conexões emocionais profundas, orientam os objetivos
-            empresariais, aumentam a visibilidade e expandem mercados
-          </p>
-          <p className="leading-normal">
-            Com uma abordagem integrada, levam ao sucesso sustentável e transformam a maneira como
-            as pessoas interagem com a marca
-          </p>
+          <div className="mx-auto grid gap-9">
+            <p className="leading-relaxed">
+              DESIGN e estratégias
+              <br />
+              de marca eficazes criam
+              <br />
+              conexões emocionais
+              <br />
+              profundas, orientam
+              <br />
+              os objetivos empresariais,
+              <br /> aumentam a visibilidade
+              <br /> e expandem mercados
+            </p>
+            <p className="leading-relaxed">
+              Com uma abordagem
+              <br />
+              integrada, levam
+              <br />
+              ao sucesso sustentável
+              <br />e transformam a maneira
+              <br /> como as pessoas
+              <br />
+              interagem com a marca
+            </p>
+          </div>
         </div>
         {mapPortfolio && <ListImages items={mapPortfolio} imageClassName="bg-gray-950" />}
       </div>

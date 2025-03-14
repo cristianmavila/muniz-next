@@ -6,7 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "black",
 };
 
 export const metadata = {

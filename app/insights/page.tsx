@@ -35,7 +35,7 @@ const LayoutExpertise = () => {
             />
           </div> */}
 
-          <div className="opacity-0 animate-fade">
+          <div className="opacity-0 animate-fade min-h-96">
             <img
               width={2500}
               height={1875}
