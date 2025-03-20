@@ -11,23 +11,26 @@ import { cva, VariantProps } from "class-variance-authority";
 import { useTablet } from "@/hooks/useTabletOrMobile";
 import { Sheet, SheetContent, SheetTitle } from "@/components/core/Sheet";
 
-const DesktopMenuVariants = cva("container mx-auto flex justify-between items-center w-full", {
-  variants: {
-    variant: {
-      vertical: "flex flex-col",
-      horizontal: "",
-      conceitos: "flex flex-col-reverse md:flex-col",
+const DesktopMenuVariants = cva(
+  "container mx-auto flex justify-between items-center w-full desktop-menu",
+  {
+    variants: {
+      variant: {
+        vertical: "flex flex-col",
+        horizontal: "",
+        conceitos: "flex flex-col-reverse md:flex-col",
+      },
+      logo: {
+        vertical: "",
+        horizontal: "",
+      },
     },
-    logo: {
-      vertical: "",
-      horizontal: "",
+    defaultVariants: {
+      variant: "horizontal",
+      logo: "horizontal",
     },
-  },
-  defaultVariants: {
-    variant: "horizontal",
-    logo: "horizontal",
-  },
-});
+  }
+);
 
 interface DesktopMenuProps extends VariantProps<typeof DesktopMenuVariants> {
   menu?: {

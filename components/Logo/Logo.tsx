@@ -13,7 +13,7 @@ const Logo = ({ variant = "horizontal", color = "#A90034", className }: LogoProp
     <div className={cn(className)}>
       {variant === "horizontal" ? (
         <svg
-          width="340"
+          width="220"
           height="147"
           viewBox="0 0 1240 447"
           fill="none"

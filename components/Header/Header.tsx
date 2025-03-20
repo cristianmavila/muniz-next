@@ -24,6 +24,8 @@ const HeaderVariants = cva("flex justify-between", {
 interface HeaderProps extends VariantProps<typeof HeaderVariants> {}
 
 const Header = ({ variant }: HeaderProps) => {
+  const itsMobile = useTablet();
+  const isHome = !!(variant === "home");
   let menu = [
     {
       href: "/portfolio/i/industria",
@@ -51,14 +53,16 @@ const Header = ({ variant }: HeaderProps) => {
     },
   ];
 
-  const itsMobile = useTablet();
-  const isHome = !!(variant === "home");
+  const showMenus = () => {
+    if (isHome && itsMobile) return <HomeMenuMobile menu={menu} />;
+    else if (isHome && !itsMobile) return <HomeDesktopMenu menu={menu} />;
+    else return <DesktopMenu menu={menu} logo={"vertical"} />;
+  };
+
   return (
     <header className={cn(HeaderVariants({ variant }))}>
       <div className={cn("relative z-10 w-full", isHome && "w-auto px-4 md:px-0")}>
-        {isHome && !itsMobile && <HomeDesktopMenu menu={menu} />}
-        {isHome && itsMobile && <HomeMenuMobile menu={menu} />}
-        {!isHome && <DesktopMenu menu={menu} logo={"vertical"} />}
+        {showMenus()}
       </div>
       {isHome && <HomeFadeImages />}
     </header>

@@ -12,7 +12,7 @@ interface HomeMenuProps {
 
 const HomeDesktopMenu = ({ menu }: HomeMenuProps) => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen w-full opacity-0 animate-fadeIn delay-700 hidden lg:block">
       {/* Home menu */}
       {menu && (
         <Menu
@@ -28,9 +28,9 @@ const HomeDesktopMenu = ({ menu }: HomeMenuProps) => {
             {...{
               variant: "horizontal",
               color: "#FFF",
-              className: "w-full max-w-[340px]",
-              width: 629,
-              height: 43,
+              className: "w-[340px]",
+              width: 340,
+              height: 147,
             }}
           />
           <ChevronDown className="w-[110px] absolute left-1/2 -translate-x-1/2 -bottom-full" />
