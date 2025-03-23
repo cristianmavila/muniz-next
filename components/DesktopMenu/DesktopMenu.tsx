@@ -74,7 +74,7 @@ const DesktopMenu = ({ menu, variant, className, logo = "horizontal" }: DesktopM
             <SheetTitle className="sr-only">Mobile menu</SheetTitle>
             <div
               className={cn(
-                "relative opacity-0 z-20 flex flex-col items-center justify-center h-full transition-all duration-500 delay-500 animate-fadeIn",
+                "relative opacity-0 z-20 flex flex-col items-center justify-center h-full transition-all duration-300 delay-500 animate-fadeIn",
                 toggleMenu && "opacity-100 flex flex-col justify-center items-start gap-4"
               )}
               onClick={() => setToggleMenu(false)}
