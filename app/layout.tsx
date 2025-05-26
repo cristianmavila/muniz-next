@@ -1,7 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { cn } from "@/libs/tailwind";
 
 const inter = Inter({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.className}`}>{children}</body>
+      <body className={cn(inter.className)}>{children}</body>
       <GoogleAnalytics gaId="G-B7KC3YD0V6" />
     </html>
   );

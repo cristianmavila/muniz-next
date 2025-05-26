@@ -78,8 +78,8 @@ h6 {
   @apply scale-x-100;
 }
 
-@media (max-width: 1030px) and (max-height: 778px) {
-  body {
+@media (max-width: 1368px) and (max-height: 770px) {
+  .container {
     zoom: 0.8;
   }
 }
