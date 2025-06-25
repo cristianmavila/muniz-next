@@ -45,13 +45,9 @@ const LayoutExpertise = () => {
           </div> */}
 
           <div>
-            <h3
-              className={cn(
-                titleStyle(),
-                "text-4xl md:text-6xl !leading-normal md:w-[330px] lg:w-full"
-              )}
-            >
-              Branding é conhecimento, Branding é experiência
+            <h3 className={cn(titleStyle(), "text-4xl md:text-5xl !leading-normal")}>
+              Branding é conhecimento,
+              <br /> Branding é experiência
             </h3>
           </div>
 
