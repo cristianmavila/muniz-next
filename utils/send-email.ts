@@ -7,25 +7,20 @@ export async function sendEmail(values: z.infer<typeof formSchema>) {
   try {
     const res = await fetch(apiEndpoint, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(values),
     });
 
+    const data = await res.json();
+
     if (res.ok) {
-      return res.json();
+      return { success: true, data };
+    } else {
+      return { success: false, error: data.error || "Erro ao enviar mensagem" };
     }
   } catch (err) {
-    return err;
+    return { success: false, error: "Erro de conexão" };
   }
-
-  //   fetch(apiEndpoint, {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       return response;
-  //     })
-  //     .catch((err) => {
-  //       return err;
-  //     });
 }

@@ -50,6 +50,7 @@ export const formSchema = z.object({
 
 const FormContact = () => {
   const [formMessage, setFormMessage] = useState<string>("");
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,12 +65,17 @@ const FormContact = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       const res = await sendEmail(values);
-      if (res.message) {
-        setFormMessage(res.message);
+      if (res.success) {
+        setFormMessage(res.data.message || "Mensagem enviada com sucesso!");
+        setIsSuccess(true);
         form.reset();
+      } else {
+        setFormMessage(res.error || "Erro ao enviar mensagem");
+        setIsSuccess(false);
       }
     } catch (err) {
-      setFormMessage(`${err}`);
+      setFormMessage("Erro inesperado ao enviar mensagem");
+      setIsSuccess(false);
     }
   }
 
@@ -80,7 +86,11 @@ const FormContact = () => {
         className="space-y-4 max-w-[600px] mx-auto w-full flex flex-col justify-center items-center my-5"
       >
         {formMessage && (
-          <div className="rounded-md border-2 border-red-400 p-2 text-base text-red-400">
+          <div
+            className={`rounded-md border-2 p-2 text-base ${
+              isSuccess ? "border-green-400 text-green-400" : "border-red-400 text-red-400"
+            }`}
+          >
             {formMessage}
           </div>
         )}
