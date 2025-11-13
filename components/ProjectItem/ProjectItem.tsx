@@ -48,7 +48,7 @@ const ProjectItem = ({ thumbnail, name, link }: ProjectItemProps) => {
           // />
           <img
             src={thumbnail.src}
-            alt={thumbnail.alt}
+            alt={thumbnail.alt || ""}
             width={thumbnail.width}
             height={thumbnail.height}
             className="w-full duration-1000 ease-in-out group-hover:scale-[135%] bg-slate-100 indent-[100%] whitespace-nowrap overflow-hidden"

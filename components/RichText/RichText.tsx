@@ -43,7 +43,7 @@ export const options: HTMLReactParserOptions = {
 
             <img
               src={src}
-              alt={alt || "image alt"}
+              alt={alt || ""}
               width={Number(width)}
               height={Number(height)}
               className={cn(

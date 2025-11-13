@@ -44,7 +44,7 @@ const ListImages = ({
               /> */}
               <img
                 {...image}
-                alt={image.alt || "image alt"}
+                alt={image.alt || ""}
                 width={image.width}
                 height={image.height}
                 className={cn(
