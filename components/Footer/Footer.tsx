@@ -1,13 +1,14 @@
 import SocialLinks from "@/components/SocialLinks";
 
 const Footer = ({ socialLinksClassName }: { socialLinksClassName?: string }) => {
+  const year = new Date().getFullYear();
   return (
     <>
       <div className={socialLinksClassName}>
         <SocialLinks />
       </div>
-      <div className="p-4 mt-4 text-white bg-black text-center text-[8px] md:text-base w-full font-normal">
-        <p>2024 | Jorge Muniz &amp; Crédito | TODOS OS DIREITOS RESERVADOS</p>
+      <div className="p-4 text-white bg-black text-center text-[8px] md:text-sm w-full font-normal flex flex-col items-center justify-center">
+        <p>{year} | Jorge Muniz &amp; Crédito | TODOS OS DIREITOS RESERVADOS</p>
         <p>
           <a href="mailto:muniz@jorgemuniz.com.br" title="muniz@jorgemuniz.com.br">
             muniz@jorgemuniz.com.br
