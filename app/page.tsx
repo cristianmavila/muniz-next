@@ -36,7 +36,7 @@ export default async function Home() {
   return (
     <div className="bg-black">
       <Header variant={"home"} />
-      <div className="container mx-auto relative overflow-hidden pb-16 text-xl">
+      <div className="container mx-auto relative overflow-hidden text-xl">
         <div className="grid gap-9 lg:max-w-[670px] w-full md:w-3/4 mx-auto text-white my-20 md:my-32 text-xl md:text-3xl">
           <div className="mx-auto grid gap-9">
             <p className="leading-relaxed">
