@@ -17,7 +17,7 @@ const MenuVariants = cva("", {
     variant: {
       vertical:
         "z-10 relative flex-col [&_ul]:flex-col [&_ul]:items-start [&_ul_a]:normal-case text-white flex-none justify-center",
-      horizontal: "hidden lg:block",
+      horizontal: "hidden lg:block text-white",
       home: "[&_ul]:flex-col flex-none [&_ul]:items-start [&_ul_a:hover]:text-brand [&_ul_a]:px-0 [&_ul_a]:flex-col [&_ul_a]:flex text-white max-w-none justify-center max-w-[350px] mx-auto",
     },
   },
@@ -50,7 +50,7 @@ const Menu = ({ menu, variant = "horizontal", orientation, className }: MenuProp
                 className={cn(
                   navigationMenuTriggerStyle(),
                   "font-medium uppercase tracking-widest px-3 cool-link-effect flex flex-col max-lg:text-base text-sm",
-                  (pathName === link.href || link.href === activeRoute) && "text-brand"
+                  (pathName === link.href || link.href === activeRoute) && "text-brand",
                   // "cool-link-effect flex flex-col",
                 )}
               >

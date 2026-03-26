@@ -7,11 +7,12 @@ import HomeMenuMobile from "@/components/HomeMenuMobile";
 import HomeFadeImages from "@/components/HomeFadeImages";
 import { cva, VariantProps } from "class-variance-authority";
 import HomeDesktopMenu from "@/components/HomeDesktopMenu";
+import { DesktopMenuVertical } from "../DesktopMenu/DesktopMenuVertical";
 
 const HeaderVariants = cva("flex justify-between", {
   variants: {
     variant: {
-      default: "",
+      default: "lg:bg-black",
       home: "h-svh items-center p-0 min-h-[600px] text-white flex-col justify-center gap-8 relative overflow-hidden",
       conceitos: "min-h-[100px]",
     },
@@ -56,7 +57,8 @@ const Header = ({ variant }: HeaderProps) => {
   const showMenus = () => {
     if (isHome && itsMobile) return <HomeMenuMobile menu={menu} />;
     else if (isHome && !itsMobile) return <HomeDesktopMenu menu={menu} />;
-    else return <DesktopMenu menu={menu} logo={"vertical"} />;
+    // else return <DesktopMenu menu={menu} logo={"vertical"} />;
+    else return <DesktopMenuVertical menu={menu} logo={"vertical"} />;
   };
 
   return (

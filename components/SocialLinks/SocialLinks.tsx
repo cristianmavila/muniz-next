@@ -7,8 +7,8 @@ const SocialLinks = () => {
       <li>
         <Link href="/contato">
           <svg
-            width="60px"
-            height="60px"
+            width="50px"
+            height="50px"
             viewBox="0 0 25 26"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +36,8 @@ const SocialLinks = () => {
       <li>
         <Link href="https://www.instagram.com/munizbranding/" target="_blank">
           <svg
-            width="60px"
-            height="60px"
+            width="50px"
+            height="50px"
             viewBox="0 0 24 24"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
